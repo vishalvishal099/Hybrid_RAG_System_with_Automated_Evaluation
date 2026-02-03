@@ -1,0 +1,58 @@
+# Hybrid RAG System Configuration
+
+data:
+  fixed_urls_file: "data/fixed_urls.json"
+  corpus_file: "data/corpus.json"
+  random_url_count: 300
+  fixed_url_count: 200
+  min_words_per_page: 200
+  
+chunking:
+  min_tokens: 200
+  max_tokens: 400
+  overlap_tokens: 50
+  
+models:
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+  # Alternative: "sentence-transformers/all-mpnet-base-v2"
+  generation_model: "google/flan-t5-base"
+  # Alternatives: "distilgpt2", "meta-llama/Llama-2-7b-chat-hf"
+  
+retrieval:
+  dense:
+    top_k: 20
+    index_type: "faiss"  # or "chromadb"
+  sparse:
+    top_k: 20
+    bm25_k1: 1.5
+    bm25_b: 0.75
+  rrf:
+    k: 60
+    final_top_n: 5
+    
+generation:
+  max_length: 512
+  min_length: 50
+  temperature: 0.7
+  top_p: 0.9
+  do_sample: true
+  
+evaluation:
+  num_questions: 100
+  question_types:
+    - factual
+    - comparative
+    - inferential
+    - multi_hop
+  metrics:
+    - mrr
+    - bertscore
+    - ndcg
+    - precision
+    - recall
+  
+paths:
+  vector_index: "data/indexes/faiss_index/index.faiss"
+  bm25_index: "data/indexes/bm25_index.pkl"
+  questions_dataset: "data/questions_100.json"
+  evaluation_results: "reports/evaluation_results.json"

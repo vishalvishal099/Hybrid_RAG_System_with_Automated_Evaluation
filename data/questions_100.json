@@ -1,0 +1,1283 @@
+{
+  "metadata": {
+    "total_questions": 100,
+    "question_types": {
+      "multi_hop": 15,
+      "factual": 59,
+      "comparative": 15,
+      "inferential": 11
+    }
+  },
+  "questions": [
+    {
+      "question_id": "Q001",
+      "question": "What is Specially protected areas?",
+      "ground_truth": "Specially protected areas cover less than 2  of the area and provide better protection for animals with popular appeal than for less visible animals",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "source_title": "Antarctica",
+      "chunk_id": "2318",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q002",
+      "question": "What is Carbon concentrating mechanisms?",
+      "ground_truth": "Carbon concentrating mechanisms On land In hot and dry conditions, plants close their stomata to prevent water loss",
+      "source_url": "https://en.wikipedia.org/wiki/Photosynthesis",
+      "source_title": "Photosynthesis",
+      "chunk_id": "715",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q003",
+      "question": "What is The fixation or?",
+      "ground_truth": "The fixation or reduction of carbon dioxide is a process in which carbon dioxide combines with a five-carbon sugar, ribulose 1,5-bisphosphate, to yield two molecules of a three-carbon compound, glycerate 3-phosphate, also known as 3-phosphoglycerate",
+      "source_url": "https://en.wikipedia.org/wiki/Photosynthesis",
+      "source_title": "Photosynthesis",
+      "chunk_id": "715",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q004",
+      "question": "How are Construct validity and Rank of a group related?",
+      "ground_truth": "Information from Construct validity and Rank of a group",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Construct_validity",
+        "https://en.wikipedia.org/wiki/Rank_of_a_group"
+      ],
+      "source_title": [
+        "Construct validity",
+        "Rank of a group"
+      ],
+      "chunk_id": [
+        "6572",
+        "6802"
+      ],
+      "question_type": "multi_hop",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q005",
+      "question": "What is This product is?",
+      "ground_truth": "This product is also referred to as 3-phosphoglyceraldehyde (PGAL) or, more generically, as triose phosphate",
+      "source_url": "https://en.wikipedia.org/wiki/Photosynthesis",
+      "source_title": "Photosynthesis",
+      "chunk_id": "715",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q006",
+      "question": "What is History of exploration?",
+      "ground_truth": "History of exploration Early world maps, like the 1513 Piri Reis map, feature the hypothetical continent Terra Australis",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "source_title": "Antarctica",
+      "chunk_id": "2318",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q007",
+      "question": "What are the similarities between Kai yang and Biochemistry?",
+      "ground_truth": "Comparison of Kai yang and Biochemistry",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Kai_yang",
+        "https://en.wikipedia.org/wiki/Biochemistry"
+      ],
+      "source_title": [
+        "Kai yang",
+        "Biochemistry"
+      ],
+      "chunk_id": [
+        "7043",
+        "567"
+      ],
+      "question_type": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q008",
+      "question": "Who is associated with The Bobby Broom Trio?",
+      "ground_truth": "The Bobby Broom Trio is an American jazz trio based in Chicago, Illinois, that was founded by guitarist Bobby Broom in 1992. The group began under the name, Bobby Broom and the Big Deal Trio, and incl",
+      "source_url": "https://en.wikipedia.org/wiki/The_Bobby_Broom_Trio",
+      "source_title": "The Bobby Broom Trio",
+      "chunk_id": "6005",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q009",
+      "question": "Who discovered Game theory?",
+      "ground_truth": "Game theory is the study of mathematical models of strategic interactions. It has applications in many fields of social science, and is used extensively in economics, logic, systems science and comput",
+      "source_url": "https://en.wikipedia.org/wiki/Game_theory",
+      "source_title": "Game theory",
+      "chunk_id": "3834",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q010",
+      "question": "What is the difference between Enzyme and Genetics?",
+      "ground_truth": "Comparison of Enzyme and Genetics",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Enzyme",
+        "https://en.wikipedia.org/wiki/Genetics"
+      ],
+      "source_title": [
+        "Enzyme",
+        "Genetics"
+      ],
+      "chunk_id": [
+        "686",
+        "4575"
+      ],
+      "question_type": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q011",
+      "question": "How does Symphony work?",
+      "ground_truth": "A symphony is an extended musical composition in Western classical music, most often for orchestra. Although the term has had many meanings from its origins in the ancient Greek era, by the late 18th ",
+      "source_url": "https://en.wikipedia.org/wiki/Symphony",
+      "source_title": "Symphony",
+      "chunk_id": "3552",
+      "question_type": "inferential",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q012",
+      "question": "What is the difference between Guitar and Curtis P. Iaukea?",
+      "ground_truth": "Comparison of Guitar and Curtis P. Iaukea",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Guitar",
+        "https://en.wikipedia.org/wiki/Curtis_P._Iaukea"
+      ],
+      "source_title": [
+        "Guitar",
+        "Curtis P. Iaukea"
+      ],
+      "chunk_id": [
+        "3619",
+        "6354"
+      ],
+      "question_type": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q013",
+      "question": "What is The simple carbon?",
+      "ground_truth": "The simple carbon sugars photosynthesis produces are then used to form other organic compounds, such as the building material cellulose, the precursors for lipid and amino acid biosynthesis, or as a fuel in cellular respiration",
+      "source_url": "https://en.wikipedia.org/wiki/Photosynthesis",
+      "source_title": "Photosynthesis",
+      "chunk_id": "715",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q014",
+      "question": "What is Under these conditions,?",
+      "ground_truth": "Under these conditions, CO2 will decrease and oxygen gas, produced by the light reactions of photosynthesis, will increase, causing an increase of photorespiration by the oxygenase activity of ribulose-1,5-bisphosphate carboxylase oxygenase (RuBisCO) and decrease in carbon fixation",
+      "source_url": "https://en.wikipedia.org/wiki/Photosynthesis",
+      "source_title": "Photosynthesis",
+      "chunk_id": "715",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q015",
+      "question": "Where is Database located?",
+      "ground_truth": "In computing, a database is an organized collection of data or a type of data store based on the use of a database management system (DBMS), the software that interacts with end users, applications, a",
+      "source_url": "https://en.wikipedia.org/wiki/Database",
+      "source_title": "Database",
+      "chunk_id": "933",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q016",
+      "question": "How are Existentialism and Stadio dei Marmi related?",
+      "ground_truth": "Information from Existentialism and Stadio dei Marmi",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Existentialism",
+        "https://en.wikipedia.org/wiki/Stadio_dei_Marmi"
+      ],
+      "source_title": [
+        "Existentialism",
+        "Stadio dei Marmi"
+      ],
+      "chunk_id": [
+        "4400",
+        "6202"
+      ],
+      "question_type": "multi_hop",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q017",
+      "question": "What is Depending on the?",
+      "ground_truth": "Depending on the stack, this could cause the remote system to allocate multiple pages of kernel memory per connection",
+      "source_url": "https://en.wikipedia.org/wiki/Sockstress",
+      "source_title": "Sockstress",
+      "chunk_id": "6713",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q018",
+      "question": "What is This process is?",
+      "ground_truth": "This process is normally underpinned by an Action Plan, as agreed by both Brussels and the target country",
+      "source_url": "https://en.wikipedia.org/wiki/European_Union",
+      "source_title": "European Union",
+      "chunk_id": "5608",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q019",
+      "question": "What is There are more?",
+      "ground_truth": "There are more terrestrial protected areas than marine protected areas",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "source_title": "Antarctica",
+      "chunk_id": "2318",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q020",
+      "question": "Why was 1980 United States presidential election in New York created?",
+      "ground_truth": "The 1980 United States presidential election in New York took place on November 4, 1980. All 50 states and the District of Columbia were part of the 1980 United States presidential election. Voters ch",
+      "source_url": "https://en.wikipedia.org/wiki/1980_United_States_presidential_election_in_New_York",
+      "source_title": "1980 United States presidential election in New York",
+      "chunk_id": "6774",
+      "question_type": "inferential",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q021",
+      "question": "Compare Antarctica and World War I.",
+      "ground_truth": "Comparison of Antarctica and World War I",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Antarctica",
+        "https://en.wikipedia.org/wiki/World_War_I"
+      ],
+      "source_title": [
+        "Antarctica",
+        "World War I"
+      ],
+      "chunk_id": [
+        "2304",
+        "1661"
+      ],
+      "question_type": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q022",
+      "question": "What does Acid\u2013base reaction mean?",
+      "ground_truth": "In chemistry, an acid base reaction is a chemical reaction that occurs between an acid and a base. It can be used to determine pH via titration. Several theoretical frameworks provide alternative conc",
+      "source_url": "https://en.wikipedia.org/wiki/Acid-base_reaction",
+      "source_title": "Acid\u2013base reaction",
+      "chunk_id": "744",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q023",
+      "question": "How are J. R. R. Tolkien and Blues related?",
+      "ground_truth": "Information from J. R. R. Tolkien and Blues",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/J._R._R._Tolkien",
+        "https://en.wikipedia.org/wiki/Blues"
+      ],
+      "source_title": [
+        "J. R. R. Tolkien",
+        "Blues"
+      ],
+      "chunk_id": [
+        "2936",
+        "3401"
+      ],
+      "question_type": "multi_hop",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q024",
+      "question": "What is Ecosystems are impacted?",
+      "ground_truth": "Ecosystems are impacted by local and global threats, notably pollution, the invasion of non-native species, and the various effects of climate change",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "source_title": "Antarctica",
+      "chunk_id": "2318",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q025",
+      "question": "What are the main features of Misha Lajovic?",
+      "ground_truth": "Milivoj Emil  Misha  Lajovic (23 July 1921   5 June 2008) was an Australian politician. He was a Liberal Party of Australia member of the Australian Senate for New South Wales from 1975 to 1985, as we",
+      "source_url": "https://en.wikipedia.org/wiki/Misha_Lajovic",
+      "source_title": "Misha Lajovic",
+      "chunk_id": "7301",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q026",
+      "question": "How are John V, Count of Nassau-Siegen and Groote Beer (botter yacht) related?",
+      "ground_truth": "Information from John V, Count of Nassau-Siegen and Groote Beer (botter yacht)",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/John_V,_Count_of_Nassau-Siegen",
+        "https://en.wikipedia.org/wiki/Groote_Beer_(botter_yacht)"
+      ],
+      "source_title": [
+        "John V, Count of Nassau-Siegen",
+        "Groote Beer (botter yacht)"
+      ],
+      "chunk_id": [
+        "5740",
+        "6092"
+      ],
+      "question_type": "multi_hop",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q027",
+      "question": "What are the similarities between Galloping Hogan and Neural network?",
+      "ground_truth": "Comparison of Galloping Hogan and Neural network",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Galloping_Hogan",
+        "https://en.wikipedia.org/wiki/Neural_network"
+      ],
+      "source_title": [
+        "Galloping Hogan",
+        "Neural network"
+      ],
+      "chunk_id": [
+        "6407",
+        "882"
+      ],
+      "question_type": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q028",
+      "question": "How do Number theory and Block party differ?",
+      "ground_truth": "Comparison of Number theory and Block party",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Number_theory",
+        "https://en.wikipedia.org/wiki/Block_party"
+      ],
+      "source_title": [
+        "Number theory",
+        "Block party"
+      ],
+      "chunk_id": [
+        "3764",
+        "6599"
+      ],
+      "question_type": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q029",
+      "question": "When did Madagascar happen?",
+      "ground_truth": "Madagascar, officially the Republic of Madagascar, is an island country in the Indian Ocean that includes the island of Madagascar and numerous smaller peripheral islands. Lying off the southeastern c",
+      "source_url": "https://en.wikipedia.org/wiki/Madagascar",
+      "source_title": "Madagascar",
+      "chunk_id": "2560",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q030",
+      "question": "What is In analogy to?",
+      "ground_truth": "In analogy to the 1980 treaty on sustainable fishing, countries led by New Zealand and the United States negotiated a treaty on mining",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "source_title": "Antarctica",
+      "chunk_id": "2318",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q031",
+      "question": "How does Sandy Bay, Tasmania work?",
+      "ground_truth": "Sandy Bay is a prestigious suburb of the city of Hobart, Tasmania, Australia, located immediately south of the central business district, and adjoining the suburb of Battery Point. Sandy Bay is bounde",
+      "source_url": "https://en.wikipedia.org/wiki/Sandy_Bay,_Tasmania",
+      "source_title": "Sandy Bay, Tasmania",
+      "chunk_id": "6231",
+      "question_type": "inferential",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q032",
+      "question": "When did The Kagestar happen?",
+      "ground_truth": "The Kagestar (\u30b6 \u30ab\u30b2\u30b9\u30bf\u30fc, Za Kagesut\u0101) is a 1976 77 Toei live action tokusatsu television series in which shadow puppeteer turned salaryman Kageo Sugata (Naoki Tachibana) gains the ability to merge with ",
+      "source_url": "https://en.wikipedia.org/wiki/The_Kagestar",
+      "source_title": "The Kagestar",
+      "chunk_id": "6586",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q033",
+      "question": "What is On the basis?",
+      "ground_truth": "On the basis of this technical evaluation, the IOC Executive Board selects the applicants that will proceed to the candidature stage",
+      "source_url": "https://en.wikipedia.org/wiki/Olympic_Games",
+      "source_title": "Olympic Games",
+      "chunk_id": "4984",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q034",
+      "question": "What is Most (five out?",
+      "ground_truth": "Most (five out of six molecules) of the glyceraldehyde 3-phosphate produced are used to regenerate ribulose 1,5-bisphosphate so the process can continue",
+      "source_url": "https://en.wikipedia.org/wiki/Photosynthesis",
+      "source_title": "Photosynthesis",
+      "chunk_id": "715",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q035",
+      "question": "How are Nile and Limping for a Generation related?",
+      "ground_truth": "Information from Nile and Limping for a Generation",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Nile",
+        "https://en.wikipedia.org/wiki/Limping_for_a_Generation"
+      ],
+      "source_title": [
+        "Nile",
+        "Limping for a Generation"
+      ],
+      "chunk_id": [
+        "2347",
+        "6175"
+      ],
+      "question_type": "multi_hop",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q036",
+      "question": "How are Nancy Drexel and Madagascar related?",
+      "ground_truth": "Information from Nancy Drexel and Madagascar",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Nancy_Drexel",
+        "https://en.wikipedia.org/wiki/Madagascar"
+      ],
+      "source_title": [
+        "Nancy Drexel",
+        "Madagascar"
+      ],
+      "chunk_id": [
+        "7518",
+        "2560"
+      ],
+      "question_type": "multi_hop",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q037",
+      "question": "What is The Convention for?",
+      "ground_truth": "The Convention for the Conservation of Antarctic Marine Living Resources, an international treaty that came into force in 1980, regulates fisheries, aiming to preserve ecological relationships",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "source_title": "Antarctica",
+      "chunk_id": "2318",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q038",
+      "question": "What is the difference between Karl Haushofer and 1907 Southern Intercollegiate Athletic Association football season?",
+      "ground_truth": "Comparison of Karl Haushofer and 1907 Southern Intercollegiate Athletic Association football season",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Karl_Haushofer",
+        "https://en.wikipedia.org/wiki/1907_Southern_Intercollegiate_Athletic_Association_football_season"
+      ],
+      "source_title": [
+        "Karl Haushofer",
+        "1907 Southern Intercollegiate Athletic Association football season"
+      ],
+      "chunk_id": [
+        "7006",
+        "6049"
+      ],
+      "question_type": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q039",
+      "question": "What is The sugars produced?",
+      "ground_truth": "The sugars produced during carbon metabolism yield carbon skeletons that can be used for other metabolic reactions like the production of amino acids and lipids",
+      "source_url": "https://en.wikipedia.org/wiki/Photosynthesis",
+      "source_title": "Photosynthesis",
+      "chunk_id": "715",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q040",
+      "question": "When did Niagara Falls happen?",
+      "ground_truth": "Niagara Falls is a group of three waterfalls at the southern end of Niagara Gorge, spanning the border between the Canadian province of Ontario and the U.S. state of New York. The largest of the three",
+      "source_url": "https://en.wikipedia.org/wiki/Niagara_Falls",
+      "source_title": "Niagara Falls",
+      "chunk_id": "2450",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q041",
+      "question": "Where is HEAnet located?",
+      "ground_truth": "HEAnet is the national education and research network of Ireland. HEAnet's e-infrastructure services support approximately 210,000 students and staff (third-level) in Ireland, and approximately 800,00",
+      "source_url": "https://en.wikipedia.org/wiki/HEAnet",
+      "source_title": "HEAnet",
+      "chunk_id": "6353",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q042",
+      "question": "What is As of 2021,?",
+      "ground_truth": "As of 2021, since the 1988 Summer Olympics in Seoul, South Korea, the Olympics have been held in Asia or Oceania four times, a sharp increase compared to the previous 92 years of modern Olympic history",
+      "source_url": "https://en.wikipedia.org/wiki/Olympic_Games",
+      "source_title": "Olympic Games",
+      "chunk_id": "4984",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q043",
+      "question": "What is Rock music?",
+      "ground_truth": "Rock music is a genre of popular music that originated in the United States as  rock and roll  in the late 1940s and early 1950s, developing into a range of styles from the mid-1960s, primarily in the",
+      "source_url": "https://en.wikipedia.org/wiki/Rock_music",
+      "source_title": "Rock music",
+      "chunk_id": "3436",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q044",
+      "question": "How is Vincent van Gogh used?",
+      "ground_truth": "Vincent Willem van Gogh (Dutch:  \u02c8v\u026ans\u025bnt \u02c8\u028b\u026al\u0259\u0271 v\u0251\u014b \u02c8\u0263\u0254x  ; 30 March 1853   29 July 1890) was a Dutch Post-Impressionist painter who is among the most famous and influential figures in the history of",
+      "source_url": "https://en.wikipedia.org/wiki/Vincent_van_Gogh",
+      "source_title": "Vincent van Gogh",
+      "chunk_id": "2667",
+      "question_type": "inferential",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q045",
+      "question": "What is Despite these regulations,?",
+      "ground_truth": "Despite these regulations, illegal fishing particularly of the highly prized Patagonian toothfish which is marketed as Chilean sea bass in the U",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "source_title": "Antarctica",
+      "chunk_id": "2318",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q046",
+      "question": "What is This Convention on?",
+      "ground_truth": "This Convention on the Regulation of Antarctic Mineral Resource Activities was adopted in 1988",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "source_title": "Antarctica",
+      "chunk_id": "2318",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q047",
+      "question": "Why was Same-sex marriage in Germany created?",
+      "ground_truth": "Same-sex marriage has been legal in Germany since 1 October 2017. A bill for the legalisation of same-sex marriage passed the Bundestag on 30 June 2017 and the Bundesrat on 7 July. It was signed into ",
+      "source_url": "https://en.wikipedia.org/wiki/Same-sex_marriage_in_Germany",
+      "source_title": "Same-sex marriage in Germany",
+      "chunk_id": "6120",
+      "question_type": "inferential",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q048",
+      "question": "How are Thermodynamics and Amazon rainforest related?",
+      "ground_truth": "Information from Thermodynamics and Amazon rainforest",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Thermodynamics",
+        "https://en.wikipedia.org/wiki/Amazon_rainforest"
+      ],
+      "source_title": [
+        "Thermodynamics",
+        "Amazon rainforest"
+      ],
+      "chunk_id": [
+        "38",
+        "2228"
+      ],
+      "question_type": "multi_hop",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q049",
+      "question": "How are Machine learning and Geoffrey Kelley related?",
+      "ground_truth": "Information from Machine learning and Geoffrey Kelley",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Machine_learning",
+        "https://en.wikipedia.org/wiki/Geoffrey_Kelley"
+      ],
+      "source_title": [
+        "Machine learning",
+        "Geoffrey Kelley"
+      ],
+      "chunk_id": [
+        "826",
+        "7154"
+      ],
+      "question_type": "multi_hop",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q050",
+      "question": "When was Bokaro Steel City established?",
+      "ground_truth": "Bokaro, officially known as Bokaro Steel City (), is an industrial planned city in Jharkhand, India. With an estimated metropolitan population of 1.1 million and 183 square kilometres (71 sq mi) of ar",
+      "source_url": "https://en.wikipedia.org/wiki/Bokaro_Steel_City",
+      "source_title": "Bokaro Steel City",
+      "chunk_id": "5839",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q051",
+      "question": "How is Redox used?",
+      "ground_truth": "Redox ( RED-oks, REE-doks, reduction oxidation or oxidation reduction) is a type of chemical reaction in which the oxidation states of the reactants change. Oxidation is the loss of electrons or an in",
+      "source_url": "https://en.wikipedia.org/wiki/Redox",
+      "source_title": "Redox",
+      "chunk_id": "734",
+      "question_type": "inferential",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q052",
+      "question": "What is This attack was?",
+      "ground_truth": "This attack was created to target Linux",
+      "source_url": "https://en.wikipedia.org/wiki/Sockstress",
+      "source_title": "Sockstress",
+      "chunk_id": "6713",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q053",
+      "question": "What are the similarities between Franz Curti and Iceland?",
+      "ground_truth": "Comparison of Franz Curti and Iceland",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Franz_Curti",
+        "https://en.wikipedia.org/wiki/Iceland"
+      ],
+      "source_title": [
+        "Franz Curti",
+        "Iceland"
+      ],
+      "chunk_id": [
+        "6769",
+        "2513"
+      ],
+      "question_type": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q054",
+      "question": "When did Guards Armoured Division happen?",
+      "ground_truth": "The Guards Armoured Division was an armoured division of the British Army during the Second World War. The division was created in the United Kingdom on 17 June 1941 during the Second World War from e",
+      "source_url": "https://en.wikipedia.org/wiki/Guards_Armoured_Division",
+      "source_title": "Guards Armoured Division",
+      "chunk_id": "5781",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q055",
+      "question": "What is the difference between River Sgitheach and Same-sex marriage in Germany?",
+      "ground_truth": "Comparison of River Sgitheach and Same-sex marriage in Germany",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/River_Sgitheach",
+        "https://en.wikipedia.org/wiki/Same-sex_marriage_in_Germany"
+      ],
+      "source_title": [
+        "River Sgitheach",
+        "Same-sex marriage in Germany"
+      ],
+      "chunk_id": [
+        "6405",
+        "6120"
+      ],
+      "question_type": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q056",
+      "question": "What is the difference between American eel and Database?",
+      "ground_truth": "Comparison of American eel and Database",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/American_eel",
+        "https://en.wikipedia.org/wiki/Database"
+      ],
+      "source_title": [
+        "American eel",
+        "Database"
+      ],
+      "chunk_id": [
+        "5771",
+        "933"
+      ],
+      "question_type": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q057",
+      "question": "What is After the work?",
+      "ground_truth": "After the work of the evaluation commission, a list of candidates is presented to the General Session of the IOC, which must assemble in a country that does not have a candidate city in the running",
+      "source_url": "https://en.wikipedia.org/wiki/Olympic_Games",
+      "source_title": "Olympic Games",
+      "chunk_id": "4984",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q058",
+      "question": "What is The Southern Ocean?",
+      "ground_truth": "The Southern Ocean Whale Sanctuary was established in 1994 by the International Whaling Commission",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "source_title": "Antarctica",
+      "chunk_id": "2318",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q059",
+      "question": "What is International recognition of?",
+      "ground_truth": "International recognition of sustainable development as a key element is growing steadily",
+      "source_url": "https://en.wikipedia.org/wiki/European_Union",
+      "source_title": "European Union",
+      "chunk_id": "5608",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q060",
+      "question": "Who discovered Sterile alpha motif?",
+      "ground_truth": "In molecular biology, the protein domain Sterile alpha motif (or SAM) is a putative protein interaction module present in a wide variety of proteins involved in many biological processes. The SAM doma",
+      "source_url": "https://en.wikipedia.org/wiki/Sterile_alpha_motif",
+      "source_title": "Sterile alpha motif",
+      "chunk_id": "6276",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q061",
+      "question": "What is Glycerate 3-phosphate, in?",
+      "ground_truth": "Glycerate 3-phosphate, in the presence of ATP and NADPH produced during the light-dependent stages, is reduced to glyceraldehyde 3-phosphate",
+      "source_url": "https://en.wikipedia.org/wiki/Photosynthesis",
+      "source_title": "Photosynthesis",
+      "chunk_id": "715",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q062",
+      "question": "What is It is expected?",
+      "ground_truth": "It is expected that this has similar effects to what is described in the CPNI document in section 5",
+      "source_url": "https://en.wikipedia.org/wiki/Sockstress",
+      "source_title": "Sockstress",
+      "chunk_id": "6713",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q063",
+      "question": "What is Good against: Stacks?",
+      "ground_truth": "Good against: Stacks that allocate multiple pages of kernel memory in response to this stimulus Example commands: fantaip -i eth0 192",
+      "source_url": "https://en.wikipedia.org/wiki/Sockstress",
+      "source_title": "Sockstress",
+      "chunk_id": "6713",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q064",
+      "question": "Why was Sockstress created?",
+      "ground_truth": "Sockstress is a method of attacking servers and other devices that accept TCP connections on the Internet and other TCP-based networks. This method depletes local resources in order to crash a service",
+      "source_url": "https://en.wikipedia.org/wiki/Sockstress",
+      "source_title": "Sockstress",
+      "chunk_id": "6709",
+      "question_type": "inferential",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q065",
+      "question": "What is The pressure group?",
+      "ground_truth": "The pressure group Greenpeace established a base on Ross Island from 1987 to 1992 as part of its attempt to establish the continent as a World Park",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "source_title": "Antarctica",
+      "chunk_id": "2318",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q066",
+      "question": "What is Despite these protections,?",
+      "ground_truth": "Despite these protections, the biodiversity in Antarctica is still at risk from human activities",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "source_title": "Antarctica",
+      "chunk_id": "2318",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q067",
+      "question": "How is SS Cayuga used?",
+      "ground_truth": "SS Cayuga was a steel-hulled American package freighter in service in the late 19th century. She was built in 1889 in Cleveland, Ohio, by the Globe Iron Works Company Cayuga entered service the same y",
+      "source_url": "https://en.wikipedia.org/wiki/SS_Cayuga",
+      "source_title": "SS Cayuga",
+      "chunk_id": "5973",
+      "question_type": "inferential",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q068",
+      "question": "What is The latter occurs?",
+      "ground_truth": "The latter occurs not only in plants but also in animals when the carbon and energy from plants is passed through a food chain",
+      "source_url": "https://en.wikipedia.org/wiki/Photosynthesis",
+      "source_title": "Photosynthesis",
+      "chunk_id": "715",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q069",
+      "question": "How are Christopher Garnett and Elliptical poetry related?",
+      "ground_truth": "Information from Christopher Garnett and Elliptical poetry",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Christopher_Garnett",
+        "https://en.wikipedia.org/wiki/Elliptical_poetry"
+      ],
+      "source_title": [
+        "Christopher Garnett",
+        "Elliptical poetry"
+      ],
+      "chunk_id": [
+        "6315",
+        "6797"
+      ],
+      "question_type": "multi_hop",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q070",
+      "question": "What is the difference between Daniel L. Stein and Spectroscopy?",
+      "ground_truth": "Comparison of Daniel L. Stein and Spectroscopy",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Daniel_L._Stein",
+        "https://en.wikipedia.org/wiki/Spectroscopy"
+      ],
+      "source_title": [
+        "Daniel L. Stein",
+        "Spectroscopy"
+      ],
+      "chunk_id": [
+        "6052",
+        "767"
+      ],
+      "question_type": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q071",
+      "question": "How does The Colony (professional wrestling) work?",
+      "ground_truth": "The Colony was a professional wrestling stable, best known for performing for Chikara. As their name suggests, their gimmick is that of an ant colony, which is further reinforced with their names bein",
+      "source_url": "https://en.wikipedia.org/wiki/The_Colony_(professional_wrestling)",
+      "source_title": "The Colony (professional wrestling)",
+      "chunk_id": "6444",
+      "question_type": "inferential",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q072",
+      "question": "What is The EU offers?",
+      "ground_truth": "The EU offers financial assistance to countries within the European Neighbourhood, so long as they meet the strict conditions of government reform, economic reform and other issues surrounding positive transformation",
+      "source_url": "https://en.wikipedia.org/wiki/European_Union",
+      "source_title": "European Union",
+      "chunk_id": "5608",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q073",
+      "question": "What is the difference between Trimethylolethane trinitrate and Superconductivity?",
+      "ground_truth": "Comparison of Trimethylolethane trinitrate and Superconductivity",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Trimethylolethane_trinitrate",
+        "https://en.wikipedia.org/wiki/Superconductivity"
+      ],
+      "source_title": [
+        "Trimethylolethane trinitrate",
+        "Superconductivity"
+      ],
+      "chunk_id": [
+        "7262",
+        "304"
+      ],
+      "question_type": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q074",
+      "question": "How do John K. Downes and Socialism differ?",
+      "ground_truth": "Comparison of John K. Downes and Socialism",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/John_K._Downes",
+        "https://en.wikipedia.org/wiki/Socialism"
+      ],
+      "source_title": [
+        "John K. Downes",
+        "Socialism"
+      ],
+      "chunk_id": [
+        "7241",
+        "5477"
+      ],
+      "question_type": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q075",
+      "question": "How are Franz Kafka and Green Valley (Mars) related?",
+      "ground_truth": "Information from Franz Kafka and Green Valley (Mars)",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Franz_Kafka",
+        "https://en.wikipedia.org/wiki/Green_Valley_(Mars)"
+      ],
+      "source_title": [
+        "Franz Kafka",
+        "Green Valley (Mars)"
+      ],
+      "chunk_id": [
+        "3021",
+        "6772"
+      ],
+      "question_type": "multi_hop",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q076",
+      "question": "What is This is the?",
+      "ground_truth": "This is the attack that was used in the sec-t and T2 demos",
+      "source_url": "https://en.wikipedia.org/wiki/Sockstress",
+      "source_title": "Sockstress",
+      "chunk_id": "6713",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q077",
+      "question": "What is There is also?",
+      "ground_truth": "There is also the worldwide European Union Global Strategy",
+      "source_url": "https://en.wikipedia.org/wiki/European_Union",
+      "source_title": "European Union",
+      "chunk_id": "5608",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q078",
+      "question": "What is This commission will?",
+      "ground_truth": "This commission will also visit the candidate cities, interviewing local officials and inspecting prospective venue sites, before submitting a report on its findings one month prior to the IOC's final decision",
+      "source_url": "https://en.wikipedia.org/wiki/Olympic_Games",
+      "source_title": "Olympic Games",
+      "chunk_id": "4984",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q079",
+      "question": "What is This is unlike?",
+      "ground_truth": "This is unlike a connection flood in that memory is now consumed for every connection made",
+      "source_url": "https://en.wikipedia.org/wiki/Sockstress",
+      "source_title": "Sockstress",
+      "chunk_id": "6713",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q080",
+      "question": "What are the similarities between Blues and Billboard Year-End Hot 100 singles of 2002?",
+      "ground_truth": "Comparison of Blues and Billboard Year-End Hot 100 singles of 2002",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Blues",
+        "https://en.wikipedia.org/wiki/Billboard_Year-End_Hot_100_singles_of_2002"
+      ],
+      "source_title": [
+        "Blues",
+        "Billboard Year-End Hot 100 singles of 2002"
+      ],
+      "chunk_id": [
+        "3401",
+        "6235"
+      ],
+      "question_type": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q081",
+      "question": "What is Each city is?",
+      "ground_truth": "Each city is thoroughly analysed by an evaluation commission",
+      "source_url": "https://en.wikipedia.org/wiki/Olympic_Games",
+      "source_title": "Olympic Games",
+      "chunk_id": "4984",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q082",
+      "question": "What is After a strong?",
+      "ground_truth": "After a strong campaign from environmental organisations, first Australia and then France decided not to ratify the treaty",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "source_title": "Antarctica",
+      "chunk_id": "2318",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q083",
+      "question": "How are Miguel de Cervantes and David Judson Burr related?",
+      "ground_truth": "Information from Miguel de Cervantes and David Judson Burr",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Miguel_de_Cervantes",
+        "https://en.wikipedia.org/wiki/David_Judson_Burr"
+      ],
+      "source_title": [
+        "Miguel de Cervantes",
+        "David Judson Burr"
+      ],
+      "chunk_id": [
+        "3005",
+        "6406"
+      ],
+      "question_type": "multi_hop",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q084",
+      "question": "Where is Data structure located?",
+      "ground_truth": "In computer science, a data structure is a data organization and storage format that is usually chosen for efficient access to data. More precisely, a data structure is a collection of data values, th",
+      "source_url": "https://en.wikipedia.org/wiki/Data_structure",
+      "source_title": "Data structure",
+      "chunk_id": "911",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q085",
+      "question": "What are the similarities between Crown debt and Genetics?",
+      "ground_truth": "Comparison of Crown debt and Genetics",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Crown_debt",
+        "https://en.wikipedia.org/wiki/Genetics"
+      ],
+      "source_title": [
+        "Crown debt",
+        "Genetics"
+      ],
+      "chunk_id": [
+        "6479",
+        "4575"
+      ],
+      "question_type": "comparative",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q086",
+      "question": "How are Samsung Galaxy A series and Portishead, Somerset related?",
+      "ground_truth": "Information from Samsung Galaxy A series and Portishead, Somerset",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Samsung_Galaxy_A_series",
+        "https://en.wikipedia.org/wiki/Portishead,_Somerset"
+      ],
+      "source_title": [
+        "Samsung Galaxy A series",
+        "Portishead, Somerset"
+      ],
+      "chunk_id": [
+        "6579",
+        "6490"
+      ],
+      "question_type": "multi_hop",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q087",
+      "question": "What is It is also?",
+      "ground_truth": "It is also quite effective against Windows",
+      "source_url": "https://en.wikipedia.org/wiki/Sockstress",
+      "source_title": "Sockstress",
+      "chunk_id": "6713",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q088",
+      "question": "How are HD 5388 and Joseph Berkson related?",
+      "ground_truth": "Information from HD 5388 and Joseph Berkson",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/HD_5388",
+        "https://en.wikipedia.org/wiki/Joseph_Berkson"
+      ],
+      "source_title": [
+        "HD 5388",
+        "Joseph Berkson"
+      ],
+      "chunk_id": [
+        "7166",
+        "5855"
+      ],
+      "question_type": "multi_hop",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q089",
+      "question": "How are Lucy Hall (triathlete) and Bound for Glory (2011) related?",
+      "ground_truth": "Information from Lucy Hall (triathlete) and Bound for Glory (2011)",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Lucy_Hall_(triathlete)",
+        "https://en.wikipedia.org/wiki/Bound_for_Glory_(2011)"
+      ],
+      "source_title": [
+        "Lucy Hall (triathlete)",
+        "Bound for Glory (2011)"
+      ],
+      "chunk_id": [
+        "6410",
+        "5904"
+      ],
+      "question_type": "multi_hop",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q090",
+      "question": "What is Once the candidate?",
+      "ground_truth": "Once the candidate cities are selected, they must submit to the IOC a bigger and more detailed presentation of their project as part of a candidature file",
+      "source_url": "https://en.wikipedia.org/wiki/Olympic_Games",
+      "source_title": "Olympic Games",
+      "chunk_id": "4984",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q091",
+      "question": "What is The evaluation of?",
+      "ground_truth": "The evaluation of the filled questionnaires by a specialised group provides the IOC with an overview of each applicant's project and their potential to host the Games",
+      "source_url": "https://en.wikipedia.org/wiki/Olympic_Games",
+      "source_title": "Olympic Games",
+      "chunk_id": "4984",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q092",
+      "question": "How are Bourne Eau and Supply and demand related?",
+      "ground_truth": "Information from Bourne Eau and Supply and demand",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Bourne_Eau",
+        "https://en.wikipedia.org/wiki/Supply_and_demand"
+      ],
+      "source_title": [
+        "Bourne Eau",
+        "Supply and demand"
+      ],
+      "chunk_id": [
+        "6466",
+        "5678"
+      ],
+      "question_type": "multi_hop",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q093",
+      "question": "Why is Piano important?",
+      "ground_truth": "A piano is a keyboard instrument that produces sound when its keys are depressed, activating an action mechanism where hammers strike strings. Modern pianos have a row of 88 black and white keys, tune",
+      "source_url": "https://en.wikipedia.org/wiki/Piano",
+      "source_title": "Piano",
+      "chunk_id": "3587",
+      "question_type": "inferential",
+      "difficulty": "hard"
+    },
+    {
+      "question_id": "Q094",
+      "question": "Where did Green and golden bell frog originate?",
+      "ground_truth": "The green and golden bell frog (Ranoidea aurea), also named the green bell frog, green and golden swamp frog and green frog, is a species of ground-dwelling tree frog native to eastern Australia. Desp",
+      "source_url": "https://en.wikipedia.org/wiki/Green_and_golden_bell_frog",
+      "source_title": "Green and golden bell frog",
+      "chunk_id": "6549",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q095",
+      "question": "Where did Pablo Picasso originate?",
+      "ground_truth": "Pablo Ruiz Picasso (25 October 1881   8 April 1973) was a Spanish painter, sculptor, printmaker, ceramicist, and theatre designer who spent most of his adult life in France. One of the most influentia",
+      "source_url": "https://en.wikipedia.org/wiki/Pablo_Picasso",
+      "source_title": "Pablo Picasso",
+      "chunk_id": "2706",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q096",
+      "question": "What are the main features of The Shawshank Redemption?",
+      "ground_truth": "The Shawshank Redemption is a 1994 American drama film written and directed by Frank Darabont, based on the 1982 Stephen King novella Rita Hayworth and Shawshank Redemption. The film tells the story o",
+      "source_url": "https://en.wikipedia.org/wiki/The_Shawshank_Redemption",
+      "source_title": "The Shawshank Redemption",
+      "chunk_id": "6880",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q097",
+      "question": "Where is Blockchain located?",
+      "ground_truth": "A blockchain is a distributed ledger with growing lists of records (blocks) that are securely linked together via cryptographic hashes. Each block contains a cryptographic hash of the previous block, ",
+      "source_url": "https://en.wikipedia.org/wiki/Blockchain",
+      "source_title": "Blockchain",
+      "chunk_id": "1011",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q098",
+      "question": "How does Linguistic discrimination work?",
+      "ground_truth": "Linguistic discrimination (also called glottophobia, linguicism and languagism) is the unfair treatment of people based upon their use of language and the characteristics of their speech, such as thei",
+      "source_url": "https://en.wikipedia.org/wiki/Linguistic_discrimination",
+      "source_title": "Linguistic discrimination",
+      "chunk_id": "6326",
+      "question_type": "inferential",
+      "difficulty": "medium"
+    },
+    {
+      "question_id": "Q099",
+      "question": "What is All commercial whaling?",
+      "ground_truth": "All commercial whaling is banned in the zone, though Japan has continued to hunt whales in the area, ostensibly for research purposes",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "source_title": "Antarctica",
+      "chunk_id": "2318",
+      "question_type": "factual",
+      "difficulty": "easy"
+    },
+    {
+      "question_id": "Q100",
+      "question": "When did HD 5388 happen?",
+      "ground_truth": "HD 5388 is a single star in the southern constellation of Phoenix. It has the Gould designation 78 G. Phoenicis, while HD 5388 is the star's Henry Draper Catalogue identifier. This object has a yellow",
+      "source_url": "https://en.wikipedia.org/wiki/HD_5388",
+      "source_title": "HD 5388",
+      "chunk_id": "7166",
+      "question_type": "factual",
+      "difficulty": "easy"
+    }
+  ]
+}
