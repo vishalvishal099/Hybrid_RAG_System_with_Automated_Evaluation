@@ -394,49 +394,52 @@ class HybridRAGSystem:
         # Load model if needed
         self.load_generation_model()
         
-        # Get the single most relevant chunk
-        best_chunk = context_chunks[0] if context_chunks else None
-        
-        if not best_chunk:
+        if not context_chunks:
             return {
                 'answer': "I couldn't find relevant information to answer this question.",
                 'generation_time': time.time() - start_time
             }
         
-        # Use concise context from best chunk
-        context_text = best_chunk['text'][:400]  # First 400 chars only
+        # Use top 3 chunks for focused, relevant context
+        top_chunks = context_chunks[:3]
+        context_parts = []
+        for i, chunk in enumerate(top_chunks, 1):
+            # Take first 500 chars from each chunk - enough for complete info
+            text_snippet = chunk['text'][:500].strip()
+            context_parts.append(f"{text_snippet}")
         
-        # Simplified, direct prompt for FLAN-T5
-        prompt = f"""Answer this question using the context below. Be direct and factual.
+        full_context = "\n\n".join(context_parts)
+        
+        # Strict grounding prompt - forces model to use ONLY the provided context
+        prompt = f"""Answer the question using ONLY the information provided in the context below. Do not use any external knowledge. If the context doesn't contain the answer, say "I cannot answer based on the provided information."
 
-Context: {context_text}
+Context from Wikipedia:
+{full_context}
 
 Question: {query}
 
-Answer:"""
+Answer based strictly on the context above:"""
         
-        # Tokenize
+        # Tokenize - keep moderate length for speed
         inputs = self.tokenizer(
             prompt,
             return_tensors="pt",
-            max_length=400,
+            max_length=768,  # Balanced for speed and context
             truncation=True
         )
         
         if torch.cuda.is_available():
             inputs = {k: v.cuda() for k, v in inputs.items()}
         
-        # Generate with stricter parameters
+        # Generate with balanced parameters - fast but complete
         with torch.no_grad():
             outputs = self.generation_model.generate(
                 **inputs,
-                max_new_tokens=100,
-                min_length=10,
-                temperature=0.3,  # Lower temperature for more focused answers
+                max_new_tokens=150,  # Enough for 2-3 complete sentences
+                min_length=20,
                 do_sample=False,  # Greedy decoding for consistency
-                num_beams=2,
+                num_beams=2,  # Minimal beams for speed
                 no_repeat_ngram_size=3,
-                early_stopping=True,
                 pad_token_id=self.tokenizer.pad_token_id,
                 eos_token_id=self.tokenizer.eos_token_id
             )
@@ -444,20 +447,70 @@ Answer:"""
         # Decode
         answer = self.tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
         
-        # Validate answer quality
-        if len(answer) < 5 or not any(c.isalpha() for c in answer) or answer.count('[') > 2:
-            # Answer is garbled, use extractive fallback
-            # Find the most relevant sentence from the chunk
-            sentences = context_text.split('.')
-            # Return first substantial sentence
+        # Remove HTML entities like <br />, &nbsp;, etc.
+        import re
+        answer = re.sub(r'<[^>]+>', '', answer)  # Remove HTML tags
+        answer = re.sub(r'&[a-z]+;', ' ', answer)  # Remove HTML entities
+        answer = re.sub(r'\s+', ' ', answer).strip()  # Normalize whitespace
+        
+        # Check if answer says it cannot answer (respecting context limitation)
+        cannot_answer_phrases = [
+            "cannot answer",
+            "don't have enough information",
+            "not provided in the context",
+            "not mentioned",
+            "no information"
+        ]
+        
+        # Validate answer quality and grounding
+        answer_lower = answer.lower()
+        is_valid_answer = (
+            len(answer) >= 10 and 
+            any(c.isalpha() for c in answer) and 
+            answer.count('[') <= 3 and
+            not any(phrase in answer_lower for phrase in cannot_answer_phrases)
+        )
+        
+        if not is_valid_answer:
+            # Answer is garbled or says "cannot answer", use extractive fallback from context
+            # This ensures we ALWAYS return information from the retrieved Wikipedia pages
+            best_text = " ".join([chunk['text'] for chunk in top_chunks[:2]])  # Use top 2 chunks
+            sentences = best_text.split('.')
+            
+            # Look for sentences containing query keywords
+            query_words = set(query.lower().split()) - {'what', 'who', 'when', 'where', 'why', 'how', 'is', 'are', 'the', 'a', 'an'}
+            relevant_sentences = []
+            
             for sent in sentences:
-                if len(sent.strip()) > 30 and any(word.lower() in sent.lower() 
-                    for word in query.lower().split()[:3]):
-                    answer = sent.strip() + "."
-                    break
+                sent = sent.strip()
+                if len(sent) > 40:  # Substantial sentence
+                    sent_lower = sent.lower()
+                    # Count keyword matches
+                    matches = sum(1 for word in query_words if word in sent_lower)
+                    if matches > 0:
+                        relevant_sentences.append((matches, sent))
+            
+            if relevant_sentences:
+                # Sort by number of matches and take best sentences
+                relevant_sentences.sort(reverse=True, key=lambda x: x[0])
+                answer = relevant_sentences[0][1] + "."
+                # Add more sentences for complete answer (up to 3 sentences)
+                if len(relevant_sentences) > 1:
+                    answer += " " + relevant_sentences[1][1] + "."
+                if len(relevant_sentences) > 2 and len(answer) < 200:
+                    answer += " " + relevant_sentences[2][1] + "."
             else:
-                # Fallback to first sentence
-                answer = sentences[0].strip() + "." if sentences else context_text[:200]
+                # Fallback to first substantial sentences
+                selected = []
+                for sent in sentences:
+                    if len(sent.strip()) > 40:
+                        selected.append(sent.strip())
+                        if len(selected) >= 2:
+                            break
+                if selected:
+                    answer = ". ".join(selected) + "."
+                else:
+                    answer = best_text[:250] + "..."
         
         generation_time = time.time() - start_time
         

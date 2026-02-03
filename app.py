@@ -82,10 +82,28 @@ def load_rag_system():
 
 
 def display_sources(sources):
-    """Display retrieved sources with scores"""
+    """Display retrieved sources with scores - deduplicated by URL"""
     st.subheader("📚 Retrieved Sources")
     
-    for i, source in enumerate(sources, 1):
+    # Deduplicate by URL, keeping highest RRF score
+    seen_urls = {}
+    unique_sources = []
+    
+    for source in sources:
+        url = source['url']
+        if url not in seen_urls:
+            seen_urls[url] = source
+            unique_sources.append(source)
+        else:
+            # Keep the one with higher RRF score
+            if source['scores']['rrf'] > seen_urls[url]['scores']['rrf']:
+                # Replace in unique_sources list
+                idx = unique_sources.index(seen_urls[url])
+                unique_sources[idx] = source
+                seen_urls[url] = source
+    
+    # Display unique sources
+    for i, source in enumerate(unique_sources, 1):
         with st.container():
             col1, col2 = st.columns([3, 1])
             
@@ -236,6 +254,8 @@ def main():
         st.session_state.query_text = ""
     if 'run_query' not in st.session_state:
         st.session_state.run_query = False
+    if 'selected_example' not in st.session_state:
+        st.session_state.selected_example = None
     
     # Example questions
     with st.expander("💡 Example Questions - Click to use"):
@@ -249,7 +269,8 @@ def main():
         
         cols = st.columns(len(example_questions))
         for i, (col, example) in enumerate(zip(cols, example_questions)):
-            if col.button(f"Example {i+1}", key=f"ex{i}", use_container_width=True):
+            if col.button(f"📝 Example {i+1}", key=f"ex{i}", use_container_width=True):
+                st.session_state.selected_example = example
                 st.session_state.query_text = example
                 st.session_state.run_query = True
                 st.rerun()
@@ -258,11 +279,16 @@ def main():
     col_input, col_button = st.columns([4, 1])
     
     with col_input:
+        # Use selected example if available, otherwise use session state
+        default_value = st.session_state.get('selected_example', st.session_state.query_text)
+        if st.session_state.selected_example:
+            # Clear after using
+            st.session_state.selected_example = None
+        
         query = st.text_input(
             "Enter your question:",
-            value=st.session_state.query_text,
+            value=default_value,
             placeholder="e.g., What is artificial intelligence?",
-            key="query_input",
             label_visibility="collapsed"
         )
     

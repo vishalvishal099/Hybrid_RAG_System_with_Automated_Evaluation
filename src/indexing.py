@@ -3,6 +3,10 @@ Indexing Script - Build FAISS and BM25 Indexes
 Creates dense and sparse indexes for hybrid retrieval
 """
 
+import os
+# Fix threading issues with transformers/tokenizers
+os.environ['TOKENIZERS_PARALLELISM'] = 'false'
+
 import json
 import pickle
 from pathlib import Path
