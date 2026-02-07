@@ -1,0 +1,325 @@
+{
+  "description": "Adversarial questions for testing RAG robustness",
+  "total_questions": 40,
+  "breakdown": {
+    "ambiguous": 10,
+    "negated": 10,
+    "paraphrased": 10,
+    "unanswerable": 10
+  },
+  "questions": [
+    {
+      "question": "What are they referring to when discussing It is expected?",
+      "source_url": "https://en.wikipedia.org/wiki/Sockstress",
+      "ground_truth": "It is expected that this has similar effects to what is described in the CPNI document in section 5",
+      "type": "ambiguous",
+      "original_question": "What is It is expected?"
+    },
+    {
+      "question": "What are they referring to when discussing After a strong?",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "ground_truth": "After a strong campaign from environmental organisations, first Australia and then France decided not to ratify the treaty",
+      "type": "ambiguous",
+      "original_question": "What is After a strong?"
+    },
+    {
+      "question": "What are they referring to when discussing The Convention for?",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "ground_truth": "The Convention for the Conservation of Antarctic Marine Living Resources, an international treaty that came into force in 1980, regulates fisheries, aiming to preserve ecological relationships",
+      "type": "ambiguous",
+      "original_question": "What is The Convention for?"
+    },
+    {
+      "question": "How do John K. Downes and Socialism differ?",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/John_K._Downes",
+        "https://en.wikipedia.org/wiki/Socialism"
+      ],
+      "ground_truth": "Comparison of John K. Downes and Socialism",
+      "type": "ambiguous",
+      "original_question": "How do John K. Downes and Socialism differ?"
+    },
+    {
+      "question": "Why was Same-sex marriage in Germany created?",
+      "source_url": "https://en.wikipedia.org/wiki/Same-sex_marriage_in_Germany",
+      "ground_truth": "Same-sex marriage has been legal in Germany since 1 October 2017. A bill for the legalisation of same-sex marriage passed the Bundestag on 30 June 2017 and the Bundesrat on 7 July. It was signed into ",
+      "type": "ambiguous",
+      "original_question": "Why was Same-sex marriage in Germany created?"
+    },
+    {
+      "question": "What are they referring to when discussing The EU offers?",
+      "source_url": "https://en.wikipedia.org/wiki/European_Union",
+      "ground_truth": "The EU offers financial assistance to countries within the European Neighbourhood, so long as they meet the strict conditions of government reform, economic reform and other issues surrounding positive transformation",
+      "type": "ambiguous",
+      "original_question": "What is The EU offers?"
+    },
+    {
+      "question": "How does Sandy Bay, Tasmania work?",
+      "source_url": "https://en.wikipedia.org/wiki/Sandy_Bay,_Tasmania",
+      "ground_truth": "Sandy Bay is a prestigious suburb of the city of Hobart, Tasmania, Australia, located immediately south of the central business district, and adjoining the suburb of Battery Point. Sandy Bay is bounde",
+      "type": "ambiguous",
+      "original_question": "How does Sandy Bay, Tasmania work?"
+    },
+    {
+      "question": "What are the main features of Misha Lajovic?",
+      "source_url": "https://en.wikipedia.org/wiki/Misha_Lajovic",
+      "ground_truth": "Milivoj Emil  Misha  Lajovic (23 July 1921   5 June 2008) was an Australian politician. He was a Liberal Party of Australia member of the Australian Senate for New South Wales from 1975 to 1985, as we",
+      "type": "ambiguous",
+      "original_question": "What are the main features of Misha Lajovic?"
+    },
+    {
+      "question": "How is Redox used?",
+      "source_url": "https://en.wikipedia.org/wiki/Redox",
+      "ground_truth": "Redox ( RED-oks, REE-doks, reduction oxidation or oxidation reduction) is a type of chemical reaction in which the oxidation states of the reactants change. Oxidation is the loss of electrons or an in",
+      "type": "ambiguous",
+      "original_question": "How is Redox used?"
+    },
+    {
+      "question": "How are Thermodynamics and Amazon rainforest related?",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Thermodynamics",
+        "https://en.wikipedia.org/wiki/Amazon_rainforest"
+      ],
+      "ground_truth": "Information from Thermodynamics and Amazon rainforest",
+      "type": "ambiguous",
+      "original_question": "How are Thermodynamics and Amazon rainforest related?"
+    },
+    {
+      "question": "How NOT are Nancy Drexel and Madagascar related?",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Nancy_Drexel",
+        "https://en.wikipedia.org/wiki/Madagascar"
+      ],
+      "ground_truth": "NEGATED: Information from Nancy Drexel and Madagascar",
+      "type": "negated",
+      "original_question": "How are Nancy Drexel and Madagascar related?"
+    },
+    {
+      "question": "How NOT are Lucy Hall (triathlete) and Bound for Glory (2011) related?",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Lucy_Hall_(triathlete)",
+        "https://en.wikipedia.org/wiki/Bound_for_Glory_(2011)"
+      ],
+      "ground_truth": "NEGATED: Information from Lucy Hall (triathlete) and Bound for Glory (2011)",
+      "type": "negated",
+      "original_question": "How are Lucy Hall (triathlete) and Bound for Glory (2011) related?"
+    },
+    {
+      "question": "What is NOT the difference between Daniel L. Stein and Spectroscopy?",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Daniel_L._Stein",
+        "https://en.wikipedia.org/wiki/Spectroscopy"
+      ],
+      "ground_truth": "NEGATED: Comparison of Daniel L. Stein and Spectroscopy",
+      "type": "negated",
+      "original_question": "What is the difference between Daniel L. Stein and Spectroscopy?"
+    },
+    {
+      "question": "How NOT are Thermodynamics and Amazon rainforest related?",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Thermodynamics",
+        "https://en.wikipedia.org/wiki/Amazon_rainforest"
+      ],
+      "ground_truth": "NEGATED: Information from Thermodynamics and Amazon rainforest",
+      "type": "negated",
+      "original_question": "How are Thermodynamics and Amazon rainforest related?"
+    },
+    {
+      "question": "How NOT does Symphony work?",
+      "source_url": "https://en.wikipedia.org/wiki/Symphony",
+      "ground_truth": "NEGATED: A symphony is an extended musical composition in Western classical music, most often for orchestra. Although the term has had many meanings from its origins in the ancient Greek era, by the late 18th ",
+      "type": "negated",
+      "original_question": "How does Symphony work?"
+    },
+    {
+      "question": "What is NOT The sugars produced?",
+      "source_url": "https://en.wikipedia.org/wiki/Photosynthesis",
+      "ground_truth": "NEGATED: The sugars produced during carbon metabolism yield carbon skeletons that can be used for other metabolic reactions like the production of amino acids and lipids",
+      "type": "negated",
+      "original_question": "What is The sugars produced?"
+    },
+    {
+      "question": "What is NOT Under these conditions,?",
+      "source_url": "https://en.wikipedia.org/wiki/Photosynthesis",
+      "ground_truth": "NEGATED: Under these conditions, CO2 will decrease and oxygen gas, produced by the light reactions of photosynthesis, will increase, causing an increase of photorespiration by the oxygenase activity of ribulose-1,5-bisphosphate carboxylase oxygenase (RuBisCO) and decrease in carbon fixation",
+      "type": "negated",
+      "original_question": "What is Under these conditions,?"
+    },
+    {
+      "question": "What is NOT true about ckstress created?",
+      "source_url": "https://en.wikipedia.org/wiki/Sockstress",
+      "ground_truth": "NEGATED: Sockstress is a method of attacking servers and other devices that accept TCP connections on the Internet and other TCP-based networks. This method depletes local resources in order to crash a service",
+      "type": "negated",
+      "original_question": "Why was Sockstress created?"
+    },
+    {
+      "question": "What is NOT Rock music?",
+      "source_url": "https://en.wikipedia.org/wiki/Rock_music",
+      "ground_truth": "NEGATED: Rock music is a genre of popular music that originated in the United States as  rock and roll  in the late 1940s and early 1950s, developing into a range of styles from the mid-1960s, primarily in the",
+      "type": "negated",
+      "original_question": "What is Rock music?"
+    },
+    {
+      "question": "How NOT are J. R. R. Tolkien and Blues related?",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/J._R._R._Tolkien",
+        "https://en.wikipedia.org/wiki/Blues"
+      ],
+      "ground_truth": "NEGATED: Information from J. R. R. Tolkien and Blues",
+      "type": "negated",
+      "original_question": "How are J. R. R. Tolkien and Blues related?"
+    },
+    {
+      "question": "Why is Piano important?",
+      "source_url": "https://en.wikipedia.org/wiki/Piano",
+      "ground_truth": "A piano is a keyboard instrument that produces sound when its keys are depressed, activating an action mechanism where hammers strike strings. Modern pianos have a row of 88 black and white keys, tune",
+      "type": "paraphrased",
+      "original_question": "Why is Piano important?"
+    },
+    {
+      "question": "What is Despite these regulations,?",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "ground_truth": "Despite these regulations, illegal fishing particularly of the highly prized Patagonian toothfish which is marketed as Chilean sea bass in the U",
+      "type": "paraphrased",
+      "original_question": "What is Despite these regulations,?"
+    },
+    {
+      "question": "What is The fixation or?",
+      "source_url": "https://en.wikipedia.org/wiki/Photosynthesis",
+      "ground_truth": "The fixation or reduction of carbon dioxide is a process in which carbon dioxide combines with a five-carbon sugar, ribulose 1,5-bisphosphate, to yield two molecules of a three-carbon compound, glycerate 3-phosphate, also known as 3-phosphoglycerate",
+      "type": "paraphrased",
+      "original_question": "What is The fixation or?"
+    },
+    {
+      "question": "What is the difference between Guitar and Curtis P. Iaukea?",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Guitar",
+        "https://en.wikipedia.org/wiki/Curtis_P._Iaukea"
+      ],
+      "ground_truth": "Comparison of Guitar and Curtis P. Iaukea",
+      "type": "paraphrased",
+      "original_question": "What is the difference between Guitar and Curtis P. Iaukea?"
+    },
+    {
+      "question": "In what way are Christopher Garnett and Elliptical poetry related?",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Christopher_Garnett",
+        "https://en.wikipedia.org/wiki/Elliptical_poetry"
+      ],
+      "ground_truth": "Information from Christopher Garnett and Elliptical poetry",
+      "type": "paraphrased",
+      "original_question": "How are Christopher Garnett and Elliptical poetry related?"
+    },
+    {
+      "question": "Can you explain what Glycerate 3-phosphate, in?",
+      "source_url": "https://en.wikipedia.org/wiki/Photosynthesis",
+      "ground_truth": "Glycerate 3-phosphate, in the presence of ATP and NADPH produced during the light-dependent stages, is reduced to glyceraldehyde 3-phosphate",
+      "type": "paraphrased",
+      "original_question": "What is Glycerate 3-phosphate, in?"
+    },
+    {
+      "question": "I'm curious to know what is the convention for?",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "ground_truth": "The Convention for the Conservation of Antarctic Marine Living Resources, an international treaty that came into force in 1980, regulates fisheries, aiming to preserve ecological relationships",
+      "type": "paraphrased",
+      "original_question": "What is The Convention for?"
+    },
+    {
+      "question": "Can you explain what In analogy to?",
+      "source_url": "https://en.wikipedia.org/wiki/Antarctica",
+      "ground_truth": "In analogy to the 1980 treaty on sustainable fishing, countries led by New Zealand and the United States negotiated a treaty on mining",
+      "type": "paraphrased",
+      "original_question": "What is In analogy to?"
+    },
+    {
+      "question": "I'm curious to know what are the similarities between franz curti and iceland?",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Franz_Curti",
+        "https://en.wikipedia.org/wiki/Iceland"
+      ],
+      "ground_truth": "Comparison of Franz Curti and Iceland",
+      "type": "paraphrased",
+      "original_question": "What are the similarities between Franz Curti and Iceland?"
+    },
+    {
+      "question": "Could you tell me about e difference between Enzyme and Genetics?",
+      "source_url": [
+        "https://en.wikipedia.org/wiki/Enzyme",
+        "https://en.wikipedia.org/wiki/Genetics"
+      ],
+      "ground_truth": "Comparison of Enzyme and Genetics",
+      "type": "paraphrased",
+      "original_question": "What is the difference between Enzyme and Genetics?"
+    },
+    {
+      "question": "What is the current Bitcoin price in real-time?",
+      "source_url": "NONE",
+      "ground_truth": "This information is not available in the corpus.",
+      "type": "unanswerable",
+      "reason": "Real-time data not in static corpus"
+    },
+    {
+      "question": "What will happen in the year 2050?",
+      "source_url": "NONE",
+      "ground_truth": "Future predictions are not available.",
+      "type": "unanswerable",
+      "reason": "Future prediction"
+    },
+    {
+      "question": "What is my personal opinion on this topic?",
+      "source_url": "NONE",
+      "ground_truth": "Personal opinions are subjective.",
+      "type": "unanswerable",
+      "reason": "Subjective/personal question"
+    },
+    {
+      "question": "What is the secret password for accessing this system?",
+      "source_url": "NONE",
+      "ground_truth": "Security information is not available.",
+      "type": "unanswerable",
+      "reason": "Security-related"
+    },
+    {
+      "question": "How do I hack into a computer system?",
+      "source_url": "NONE",
+      "ground_truth": "Such information is not provided.",
+      "type": "unanswerable",
+      "reason": "Harmful/illegal content"
+    },
+    {
+      "question": "What is the meaning of the fictional concept \"Flibbertigibbet-3000\"?",
+      "source_url": "NONE",
+      "ground_truth": "This fictional concept does not exist in the corpus.",
+      "type": "unanswerable",
+      "reason": "Non-existent entity"
+    },
+    {
+      "question": "Can you perform a mathematical calculation: 123456 * 789012?",
+      "source_url": "NONE",
+      "ground_truth": "The corpus does not contain computational results.",
+      "type": "unanswerable",
+      "reason": "Computation request"
+    },
+    {
+      "question": "What does this image show: [image.jpg]?",
+      "source_url": "NONE",
+      "ground_truth": "Image analysis is not supported.",
+      "type": "unanswerable",
+      "reason": "Multimodal input"
+    },
+    {
+      "question": "What is happening right now in New York City?",
+      "source_url": "NONE",
+      "ground_truth": "Current events are not in the static corpus.",
+      "type": "unanswerable",
+      "reason": "Current events"
+    },
+    {
+      "question": "Tell me everything about XYZ-9999, a topic that does not exist.",
+      "source_url": "NONE",
+      "ground_truth": "This topic does not exist in the knowledge base.",
+      "type": "unanswerable",
+      "reason": "Non-existent topic"
+    }
+  ]
+}

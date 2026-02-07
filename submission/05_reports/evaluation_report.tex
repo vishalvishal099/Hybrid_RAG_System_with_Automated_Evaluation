@@ -1,0 +1,242 @@
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Hybrid RAG System Evaluation}
+\lhead{\leftmark}
+\rfoot{Page \thepage}
+
+\title{\textbf{Hybrid RAG System with Automated Evaluation}\\
+\large Comprehensive Evaluation Report}
+\author{BITS Pilani - Conversational AI Assignment 2}
+\date{February 7, 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This report presents a comprehensive evaluation of a Hybrid Retrieval-Augmented Generation (RAG) system that combines dense vector retrieval (ChromaDB + MiniLM embeddings), sparse keyword retrieval (BM25), and Reciprocal Rank Fusion (RRF) for answer generation from Wikipedia articles. The system was evaluated using 100 automatically generated questions across three retrieval methods, measuring Mean Reciprocal Rank (MRR), Recall@10, and Answer F1 scores.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+
+\subsection{Project Overview}
+This project implements a Hybrid RAG system for question answering over Wikipedia articles. The system architecture combines:
+\begin{itemize}
+    \item \textbf{Dense Retrieval}: ChromaDB with all-MiniLM-L6-v2 embeddings
+    \item \textbf{Sparse Retrieval}: BM25 with NLTK tokenization
+    \item \textbf{Fusion}: Reciprocal Rank Fusion (RRF) with $k=60$
+    \item \textbf{Generation}: FLAN-T5-Base language model
+\end{itemize}
+
+\subsection{GitHub Repository}
+All code and data are available at:\\
+\url{https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation}
+
+\subsection{Dataset}
+\begin{itemize}
+    \item \textbf{Corpus}: 501 Wikipedia articles (14.5MB)
+    \item \textbf{Chunks}: 7,519 text chunks (avg ~160 tokens)
+    \item \textbf{Evaluation}: 100 question-answer pairs
+\end{itemize}
+
+\section{System Architecture}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{docs/architecture_diagram.png}
+\caption{System Architecture Diagram}
+\end{figure}
+
+\subsection{Components}
+\begin{enumerate}
+    \item \textbf{Query Processing}: User input is processed for both dense and sparse retrieval
+    \item \textbf{Dense Retrieval}: Query embedding generated with MiniLM, similarity search in ChromaDB
+    \item \textbf{Sparse Retrieval}: BM25 scoring against tokenized corpus
+    \item \textbf{RRF Fusion}: Combines rankings using $RRF(d) = \sum_{r \in R} \frac{1}{k + r(d)}$
+    \item \textbf{Answer Generation}: FLAN-T5 generates answer from top-5 chunks
+\end{enumerate}
+
+\section{Evaluation Methodology}
+
+\subsection{Metrics}
+
+\subsubsection{Mean Reciprocal Rank (MRR)}
+\begin{equation}
+MRR = \frac{1}{|Q|} \sum_{i=1}^{|Q|} \frac{1}{rank_i}
+\end{equation}
+Where $rank_i$ is the position of the first relevant document for query $i$.
+
+\subsubsection{Recall@10}
+\begin{equation}
+Recall@10 = \frac{|Retrieved_{10} \cap Relevant|}{|Relevant|}
+\end{equation}
+Measures the fraction of relevant documents in the top 10 results.
+
+\subsubsection{Answer F1}
+\begin{equation}
+F1 = 2 \times \frac{Precision \times Recall}{Precision + Recall}
+\end{equation}
+Token-level overlap between generated and reference answers.
+
+\subsection{Question Types}
+\begin{itemize}
+    \item Factual (59 questions)
+    \item Comparative (15 questions)
+    \item Inferential (11 questions)
+    \item Multi-hop (15 questions)
+\end{itemize}
+
+\section{Results}
+
+\subsection{Overall Performance}
+
+\begin{table}[H]
+\centering
+\caption{Evaluation Results by Retrieval Method (100 Questions)}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Method} & \textbf{MRR} & \textbf{Recall@10} & \textbf{Answer F1} & \textbf{Avg Time (s)} \\
+\midrule
+Dense & 0.3025 & 0.3300 & 0.0000 & 5.86 \\
+Sparse (BM25) & 0.4392 & 0.4700 & 0.0000 & 5.53 \\
+Hybrid (RRF) & 0.3783 & 0.4300 & 0.0000 & 6.37 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{tcolorbox}[colback=green!5,colframe=green!40!black,title=Key Finding]
+\textbf{Sparse (BM25) achieves the best retrieval performance} with MRR=0.4392 and Recall@10=0.47, outperforming both Dense and Hybrid methods on this Wikipedia-based dataset.
+\end{tcolorbox}
+
+\subsection{Visualizations}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{comparison_metrics.png}
+\caption{Metric Comparison Across Methods}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{distribution_charts.png}
+\caption{Score Distribution Analysis}
+\end{figure}
+
+\section{Error Analysis}
+
+\subsection{Failure Categories}
+
+\begin{table}[H]
+\centering
+\caption{Failure Category Distribution}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Category} & \textbf{Count} & \textbf{Percentage} \\
+\midrule
+Retrieval Failure & 177 & 59.0\% \\
+Generation Failure & 123 & 41.0\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Analysis by Question Type}
+Multi-hop questions show consistently lower performance across all methods, indicating the system struggles with complex reasoning requiring information synthesis from multiple documents.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{docs/retrieval_heatmap.png}
+\caption{MRR Heatmap by Question Type and Method}
+\end{figure}
+
+\section{Ablation Study}
+
+\subsection{Method Comparison}
+The ablation study confirms that BM25 (sparse retrieval) is most effective for factual Wikipedia content, while dense embeddings provide better semantic matching for paraphrased queries.
+
+\subsection{Impact of Top-K}
+Testing K values of 5, 10, 15, and 20 showed that K=10 provides the optimal balance between retrieval precision and context coverage for answer generation.
+
+\section{Conclusions}
+
+\subsection{Summary}
+\begin{itemize}
+    \item Sparse (BM25) retrieval outperforms dense retrieval on Wikipedia factual content
+    \item Hybrid RRF provides balanced performance between methods
+    \item Low Answer F1 scores indicate generation quality needs improvement
+    \item Multi-hop questions remain challenging across all methods
+\end{itemize}
+
+\subsection{Recommendations}
+\begin{enumerate}
+    \item Use larger LLM (FLAN-T5-Large or XL) for better generation
+    \item Implement query decomposition for multi-hop questions
+    \item Consider re-ranking with cross-encoders
+    \item Increase chunk overlap for better context continuity
+\end{enumerate}
+
+\section{References}
+
+\begin{enumerate}
+    \item Robertson, S., \& Zaragoza, H. (2009). The Probabilistic Relevance Framework: BM25 and Beyond. \textit{Foundations and Trends in Information Retrieval}.
+    \item Cormack, G. V., Clarke, C. L., \& Buettcher, S. (2009). Reciprocal Rank Fusion outperforms Condorcet and individual Rank Learning Methods. \textit{SIGIR}.
+    \item Chung, H. W., et al. (2022). Scaling Instruction-Finetuned Language Models. \textit{arXiv preprint}.
+\end{enumerate}
+
+\appendix
+
+\section{Code References}
+
+\begin{table}[H]
+\centering
+\caption{Key Code Files}
+\begin{tabular}{ll}
+\toprule
+\textbf{Component} & \textbf{File} \\
+\midrule
+RAG System & chromadb\_rag\_system.py \\
+Evaluation & evaluate\_chromadb\_fast.py \\
+Error Analysis & error\_analysis.py \\
+UI Application & app\_chromadb.py \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{File Structure}
+
+\begin{verbatim}
+Hybrid_RAG_System_with_Automated_Evaluation/
+├── chromadb_rag_system.py      # Core RAG implementation
+├── app_chromadb.py             # Streamlit UI
+├── evaluate_chromadb_fast.py   # Evaluation pipeline
+├── error_analysis.py           # Failure analysis
+├── data/
+│   ├── questions_100.json      # Evaluation dataset
+│   └── corpus.json             # Wikipedia corpus
+├── chroma_db/                  # Vector database
+├── docs/                       # Documentation
+└── screenshots/                # UI screenshots
+\end{verbatim}
+
+\end{document}

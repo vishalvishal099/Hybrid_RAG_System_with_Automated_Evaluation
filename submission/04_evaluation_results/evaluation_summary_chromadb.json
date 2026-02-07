@@ -1,0 +1,38 @@
+[
+  {
+    "method": "dense",
+    "num_questions": 100,
+    "avg_mrr": 0.3025,
+    "avg_recall@10": 0.33,
+    "avg_answer_f1": 0.0,
+    "pct_complete_answers": 100.0,
+    "avg_retrieval_time": 0.09162759065628051,
+    "avg_generation_time": 5.771235003471374,
+    "avg_total_time": 5.862890465259552,
+    "total_evaluation_time": 586.3108620643616
+  },
+  {
+    "method": "sparse",
+    "num_questions": 100,
+    "avg_mrr": 0.43916666666666665,
+    "avg_recall@10": 0.47,
+    "avg_answer_f1": 0.0,
+    "pct_complete_answers": 100.0,
+    "avg_retrieval_time": 0.006319670677185058,
+    "avg_generation_time": 5.528280117511749,
+    "avg_total_time": 5.5346306967735295,
+    "total_evaluation_time": 553.4728393554688
+  },
+  {
+    "method": "hybrid",
+    "num_questions": 100,
+    "avg_mrr": 0.37833333333333335,
+    "avg_recall@10": 0.43,
+    "avg_answer_f1": 0.0,
+    "pct_complete_answers": 100.0,
+    "avg_retrieval_time": 0.09208252429962158,
+    "avg_generation_time": 6.2750128912925724,
+    "avg_total_time": 6.367139372825623,
+    "total_evaluation_time": 636.7243158817291
+  }
+]

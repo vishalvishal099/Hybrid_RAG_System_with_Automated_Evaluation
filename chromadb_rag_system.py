@@ -103,6 +103,8 @@ class ChromaDBHybridRAG:
                                k: int = 60) -> List[Dict]:
         """RRF fusion"""
         rrf_scores = {}
+        dense_scores_map = {idx: score for idx, score in dense_results}
+        sparse_scores_map = {idx: score for idx, score in sparse_results}
         
         # Add dense scores
         for rank, (idx, score) in enumerate(dense_results, 1):
@@ -119,6 +121,8 @@ class ChromaDBHybridRAG:
         for idx, rrf_score in sorted_results[:10]:
             chunk = self.corpus_chunks[idx].copy()
             chunk['rrf_score'] = rrf_score
+            chunk['dense_score'] = dense_scores_map.get(idx, 0.0)
+            chunk['sparse_score'] = sparse_scores_map.get(idx, 0.0)
             chunk['chunk_index'] = idx
             final_results.append(chunk)
         
@@ -130,11 +134,25 @@ class ChromaDBHybridRAG:
         
         if method == "dense":
             dense_results = self.dense_retrieval(query, top_k=10)
-            chunks = [self.corpus_chunks[idx] for idx, _ in dense_results]
+            chunks = []
+            for idx, score in dense_results:
+                chunk = self.corpus_chunks[idx].copy()
+                chunk['dense_score'] = score
+                chunk['sparse_score'] = 0.0
+                chunk['rrf_score'] = 0.0
+                chunk['chunk_index'] = idx
+                chunks.append(chunk)
         
         elif method == "sparse":
             sparse_results = self.sparse_retrieval(query, top_k=10)
-            chunks = [self.corpus_chunks[idx] for idx, _ in sparse_results]
+            chunks = []
+            for idx, score in sparse_results:
+                chunk = self.corpus_chunks[idx].copy()
+                chunk['dense_score'] = 0.0
+                chunk['sparse_score'] = score
+                chunk['rrf_score'] = 0.0
+                chunk['chunk_index'] = idx
+                chunks.append(chunk)
         
         else:  # hybrid (RRF)
             dense_results = self.dense_retrieval(query, top_k=100)

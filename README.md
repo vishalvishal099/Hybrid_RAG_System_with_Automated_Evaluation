@@ -1,479 +1,264 @@
-# Hybrid RAG System - Retrieval-Augmented Generation
+# Hybrid RAG System with Automated Evaluation
 
-A comprehensive implementation of a Hybrid RAG system combining **Dense Vector Retrieval (FAISS)**, **Sparse Keyword Retrieval (BM25)**, and **Reciprocal Rank Fusion (RRF)** to answer questions from 500 Wikipedia articles.
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation)
+
+A comprehensive implementation of a **Hybrid RAG System** combining **Dense Vector Retrieval (ChromaDB)**, **Sparse Keyword Retrieval (BM25)**, and **Reciprocal Rank Fusion (RRF)** to answer questions from Wikipedia articles.
+
+**GitHub Repository:** [https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation)
+
+---
 
 ## 🚀 Quick Start
 
-**One-command setup (macOS/Linux):**
+### Prerequisites
+- Python 3.10+
+- 4GB+ RAM
+
+### Installation
+
 ```bash
-./run_all.sh
+# Clone repository
+git clone https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation.git
+cd Hybrid_RAG_System_with_Automated_Evaluation
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
 ```
 
-**One-command setup (Windows):**
-```cmd
-run_all.bat
+### Run the Application
+
+```bash
+# Start Streamlit UI
+./start_ui.sh
+
+# Or manually:
+streamlit run app_chromadb.py
 ```
 
-This will automatically:
-1. Set up virtual environment
-2. Install all dependencies
-3. Collect 500 Wikipedia articles
-4. Build FAISS and BM25 indexes
-5. Generate 100 evaluation questions
-6. Run comprehensive evaluation
-7. Optionally launch the UI
+### Run Evaluation
+
+```bash
+# Full evaluation (100 questions × 3 methods)
+python evaluate_chromadb_fast.py
+
+# Generate reports
+python generate_report.py
+```
+
+---
 
 ## 🎯 Project Overview
 
 This project implements a state-of-the-art Hybrid RAG system that:
-- Combines dense and sparse retrieval for superior performance
-- Uses Reciprocal Rank Fusion to intelligently merge results
-- Generates answers using Flan-T5 language model
-- Includes comprehensive evaluation with 100 generated questions
-- Features innovative evaluation techniques (ablation studies, error analysis, LLM-as-judge)
+- Combines **dense** (ChromaDB + MiniLM) and **sparse** (BM25) retrieval
+- Uses **Reciprocal Rank Fusion (RRF)** with k=60 to merge results
+- Generates answers using **FLAN-T5** language model
+- Includes comprehensive evaluation with **100 generated questions**
+- Features automated evaluation pipeline with MRR, Recall@10, and Answer F1
+
+---
 
 ## 📊 System Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                  User Query                              │
-└──────────────────┬──────────────────────────────────────┘
-                   │
-        ┌──────────┴──────────┐
-        │                     │
-┌───────▼────────┐   ┌────────▼───────┐
-│ Dense Retrieval│   │Sparse Retrieval│
-│  (FAISS + SE)  │   │     (BM25)     │
-└───────┬────────┘   └────────┬───────┘
-        │                     │
-        └──────────┬──────────┘
-                   │
-        ┌──────────▼──────────┐
-        │ Reciprocal Rank     │
-        │ Fusion (RRF)        │
-        └──────────┬──────────┘
-                   │
-        ┌──────────▼──────────┐
-        │  Top-N Chunks       │
-        └──────────┬──────────┘
-                   │
-        ┌──────────▼──────────┐
-        │  LLM Generation     │
-        │   (Flan-T5)         │
-        └──────────┬──────────┘
-                   │
-        ┌──────────▼──────────┐
-        │   Generated Answer  │
-        └─────────────────────┘
+│                    User Query                            │
+└──────────────────────┬──────────────────────────────────┘
+                       │
+            ┌──────────┴──────────┐
+            │                     │
+    ┌───────▼────────┐   ┌────────▼───────┐
+    │ Dense Retrieval│   │Sparse Retrieval│
+    │ (ChromaDB +    │   │    (BM25 +     │
+    │  MiniLM-L6-v2) │   │     NLTK)      │
+    └───────┬────────┘   └────────┬───────┘
+            │                     │
+            └──────────┬──────────┘
+                       │
+            ┌──────────▼──────────┐
+            │ Reciprocal Rank     │
+            │ Fusion (k=60)       │
+            └──────────┬──────────┘
+                       │
+            ┌──────────▼──────────┐
+            │   Top-K Chunks      │
+            └──────────┬──────────┘
+                       │
+            ┌──────────▼──────────┐
+            │  Answer Generation  │
+            │  (FLAN-T5-base)     │
+            └──────────┬──────────┘
+                       │
+            ┌──────────▼──────────┐
+            │   Generated Answer  │
+            │   + Source URLs     │
+            └─────────────────────┘
 ```
+
+---
 
 ## 🗂️ Project Structure
 
 ```
-ConvAI_assingment_2/
+Hybrid_RAG_System_with_Automated_Evaluation/
+│
+├── chromadb_rag_system.py      # Core RAG implementation
+├── app_chromadb.py             # Streamlit UI (244 lines)
+├── evaluate_chromadb_fast.py   # Evaluation pipeline
+├── generate_report.py          # Report generator
+├── start_ui.sh                 # Quick start script
+│
 ├── data/
-│   ├── fixed_urls.json          # 200 fixed Wikipedia URLs
-│   ├── corpus.json              # Processed corpus with chunks
-│   └── questions_100.json       # 100 evaluation questions
-├── src/
-│   ├── data_collection.py       # Wikipedia data collection
-│   ├── rag_system.py            # Main RAG implementation
-│   └── question_generation.py   # Question generation
-├── evaluation/
-│   ├── metrics.py               # Evaluation metrics (MRR, NDCG, BERTScore)
-│   ├── innovative_eval.py       # Advanced evaluation features
-│   └── pipeline.py              # Automated evaluation pipeline
-├── models/
-│   ├── faiss_index             # Dense vector index
-│   └── bm25_index.pkl          # Sparse BM25 index
+│   ├── fixed_urls.json         # 200 fixed Wikipedia URLs
+│   ├── corpus.json             # Preprocessed corpus (14.5MB)
+│   ├── questions_100.json      # 100 evaluation questions
+│   └── indexes/                # BM25 index files
+│
+├── chroma_db/                  # ChromaDB vector database (212MB)
+│
+├── docs/
+│   ├── METRIC_JUSTIFICATION.md # Metric selection rationale
+│   ├── ERROR_ANALYSIS.md       # Failure analysis
+│   ├── EVALUATION_REPORT.md    # Full evaluation report
+│   ├── architecture_diagram.png
+│   └── *.png                   # Visualizations
+│
 ├── reports/
-│   ├── evaluation_results.json  # Detailed results
-│   ├── evaluation_results.csv   # Tabular results
-│   ├── visualizations/          # Charts and plots
-│   ├── ablation/                # Ablation study results
-│   └── errors/                  # Error analysis
-├── app.py                       # Streamlit UI
-├── config.yaml                  # Configuration
-├── requirements.txt             # Dependencies
-└── README.md                    # This file
+│   └── Hybrid_RAG_Evaluation_Report.pdf
+│
+├── screenshots/
+│   ├── 01_query_interface.png
+│   ├── 02_method_comparison.png
+│   └── 03_evaluation_results.png
+│
+├── evaluation_results_chromadb.csv     # 300 evaluation rows
+├── evaluation_summary_chromadb.json    # Summary metrics
+├── evaluation_report_chromadb.html     # HTML report
+│
+└── README.md                   # This file
 ```
 
-## 🚀 Installation
+---
 
-### Prerequisites
-- Python 3.8+
-- 8GB+ RAM (16GB recommended)
-- GPU optional (recommended for faster processing)
+## 📈 Evaluation Results
 
-### Setup Instructions
+### Performance Summary
 
-#### Option 1: Automated Setup (Recommended)
+| Method | MRR | Recall@10 | Avg Time (s) | Questions |
+|--------|-----|-----------|--------------|-----------|
+| Dense (ChromaDB) | 0.3025 | 0.33 | 5.86 | 100 |
+| **Sparse (BM25)** | **0.4392** | **0.47** | 5.53 | 100 |
+| Hybrid (RRF) | 0.3783 | 0.43 | 6.37 | 100 |
 
-**macOS/Linux:**
-```bash
-./run_all.sh
-```
+**Key Finding:** BM25 (Sparse) outperforms Dense retrieval by **45%** on MRR for Wikipedia-based QA.
 
-**Windows:**
-```cmd
-run_all.bat
-```
+### Question Distribution
 
-This single command will:
-- Create virtual environment
-- Install all dependencies
-- Collect 500 Wikipedia articles
-- Build FAISS and BM25 indexes
-- Generate 100 evaluation questions
-- Run complete evaluation
-- Optionally launch the Streamlit UI
+| Type | Count | Description |
+|------|-------|-------------|
+| Factual | 59 | Direct fact-based questions |
+| Comparative | 15 | Questions comparing concepts |
+| Inferential | 11 | Reasoning-based questions |
+| Multi-hop | 15 | Questions requiring multiple sources |
+| **Total** | **100** | - |
 
-**Total time**: ~90-150 minutes (mostly automated)
+---
 
-#### Option 2: Manual Setup
+## 📚 Documentation
 
-1. **Clone/Download the repository**
-```bash
-cd ConvAI_assingment_2
-```
+| Document | Description | Link |
+|----------|-------------|------|
+| Metric Justification | Why MRR, Recall@10, Answer F1 | [docs/METRIC_JUSTIFICATION.md](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation/blob/main/docs/METRIC_JUSTIFICATION.md) |
+| Error Analysis | Failure categorization | [docs/ERROR_ANALYSIS.md](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation/blob/main/docs/ERROR_ANALYSIS.md) |
+| Full Report | Comprehensive evaluation | [docs/EVALUATION_REPORT.md](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation/blob/main/docs/EVALUATION_REPORT.md) |
+| PDF Report | Printable report | [reports/Hybrid_RAG_Evaluation_Report.pdf](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation/blob/main/reports/Hybrid_RAG_Evaluation_Report.pdf) |
 
-2. **Create virtual environment**
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
+---
 
-3. **Install dependencies**
-```bash
-pip install -r requirements.txt
-```
+## 🔗 Key Source Files
 
-4. **Download NLTK data**
-```python
-python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
-```
+| File | Purpose | Link |
+|------|---------|------|
+| `chromadb_rag_system.py` | Core RAG implementation | [View](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation/blob/main/chromadb_rag_system.py) |
+| `app_chromadb.py` | Streamlit UI | [View](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation/blob/main/app_chromadb.py) |
+| `evaluate_chromadb_fast.py` | Evaluation pipeline | [View](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation/blob/main/evaluate_chromadb_fast.py) |
+| `generate_report.py` | Report generation | [View](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation/blob/main/generate_report.py) |
 
-#### Option 3: Interactive Setup
+---
 
-For guided step-by-step setup:
-```bash
-python setup.py
-```
+## 📸 Screenshots
 
-## 📚 Usage Guide
+### Query Interface
+![Query Interface](screenshots/01_query_interface.png)
 
-### Quick Test
+### Method Comparison  
+![Method Comparison](screenshots/02_method_comparison.png)
 
-Run a quick test without full evaluation:
-```bash
-python quick_test.py
-```
+### Evaluation Results
+![Evaluation Results](screenshots/03_evaluation_results.png)
 
-This will run 5 sample queries and show results.
+---
 
-### Step 1: Data Collection
+## 🛠️ Technical Details
 
-Collect 200 fixed + 300 random Wikipedia URLs and process them into chunks:
+### Components
 
-```bash
-# Generate fixed URLs first
-python generate_fixed_urls.py
+| Component | Technology | Details |
+|-----------|------------|---------|
+| Dense Retrieval | ChromaDB + all-MiniLM-L6-v2 | 384-dim embeddings, 7,519 chunks |
+| Sparse Retrieval | BM25 + NLTK | Tokenization, stopwords, stemming |
+| Fusion | RRF | Reciprocal Rank Fusion with k=60 |
+| Generation | FLAN-T5-base | 248M parameter text-to-text model |
+| UI | Streamlit | Interactive web interface |
+| Database | ChromaDB | Persistent SQLite backend (212MB) |
 
-# Then collect all data
-python src/data_collection.py
-```
+### Metrics
 
-This creates:
-- `data/fixed_urls.json` - 200 fixed URLs (remains constant)
-- `data/corpus.json` - Processed corpus with all chunks
+| Metric | Formula | Purpose |
+|--------|---------|---------|
+| **MRR** | (1/Q) × Σ(1/rank_i) | Measures retrieval quality |
+| **Recall@10** | \|Relevant ∩ Retrieved@10\| / \|Relevant\| | Coverage in top 10 |
+| **Answer F1** | 2×(P×R)/(P+R) | Token overlap with ground truth |
 
-**Time**: ~30-60 minutes depending on internet speed
+---
 
-### Step 2: Build Indexes
+## 📋 Requirements Checklist
 
-Build dense (FAISS) and sparse (BM25) indexes:
+### ✅ Section 1: Hybrid RAG System (10 pts)
+- [x] Dense Vector Retrieval (ChromaDB + MiniLM)
+- [x] Sparse Keyword Retrieval (BM25)
+- [x] RRF Fusion (k=60)
+- [x] Response Generation (FLAN-T5)
+- [x] Interactive UI (Streamlit)
 
-```bash
-python -c "
-from src.rag_system import HybridRAGSystem
-rag = HybridRAGSystem()
-rag.load_corpus()
-rag.build_dense_index()
-rag.build_sparse_index()
-"
-```
+### ✅ Section 2: Evaluation Framework (10 pts)
+- [x] 100 Q&A pairs generated
+- [x] MRR metric implemented
+- [x] Recall@10 metric implemented
+- [x] Answer F1 metric implemented
+- [x] Automated evaluation pipeline
+- [x] HTML/CSV/JSON/PDF reports
 
-This creates:
-- `models/faiss_index` - Dense vector index
-- `models/bm25_index.pkl` - Sparse keyword index
-
-**Time**: ~10-20 minutes
-
-### Step 3: Generate Evaluation Questions
-
-Generate 100 diverse questions for evaluation:
-
-```bash
-python src/question_generation.py
-```
-
-This creates:
-- `data/questions_100.json` - 100 Q&A pairs with metadata
-
-**Time**: ~5-10 minutes
-
-### Step 4: Run Evaluation Pipeline
-
-Run the complete automated evaluation:
-
-```bash
-python evaluation/pipeline.py
-```
-
-This performs:
-1. Evaluates all 100 questions
-2. Calculates MRR, NDCG@5, BERTScore
-3. Runs ablation study (dense vs sparse vs hybrid)
-4. Performs error analysis
-5. Generates visualizations
-6. Saves comprehensive reports
-
-**Output**: All results in `reports/` directory
-
-**Time**: ~30-60 minutes
-
-### Step 5: Launch Streamlit UI
-
-Start the interactive web interface:
-
-```bash
-streamlit run app.py
-```
-
-Access at: http://localhost:8501
-
-## 📊 Evaluation Metrics
-
-### 1. Mean Reciprocal Rank (MRR) - **MANDATORY**
-
-**Purpose**: Measures how quickly the system identifies the correct source document.
-
-**Calculation**:
-```
-For each query:
-  RR = 1/rank (if found), 0 (if not found)
-MRR = Average of all RR scores
-```
-
-**Interpretation**:
-- 1.0: Perfect - correct URL always ranked first
-- 0.7-1.0: Excellent
-- 0.5-0.7: Good
-- < 0.5: Needs improvement
-
-### 2. BERTScore F1 - **CUSTOM METRIC 1**
-
-**Why Chosen**: Evaluates semantic similarity using contextual embeddings, capturing meaning beyond lexical matching.
-
-**Calculation**:
-1. Compute BERT embeddings for tokens
-2. Calculate cosine similarity matrix
-3. Greedy matching for optimal alignment
-4. F1 = 2 * (Precision * Recall) / (Precision + Recall)
-
-**Interpretation**:
-- > 0.9: Excellent semantic match
-- 0.8-0.9: Good match
-- 0.7-0.8: Moderate match
-- < 0.7: Poor match
-
-### 3. NDCG@5 - **CUSTOM METRIC 2**
-
-**Why Chosen**: Evaluates ranking quality considering both relevance and position. Critical for RAG as position affects context quality.
-
-**Calculation**:
-```
-DCG@5 = Σ(i=1 to 5) [rel_i / log2(i+1)]
-NDCG@5 = DCG@5 / IDCG@5
-```
-
-**Interpretation**:
-- 1.0: Perfect ranking
-- 0.8-1.0: Excellent
-- 0.6-0.8: Good
-- < 0.6: Needs improvement
-
-## 🎨 Innovative Evaluation Features
-
-1. **Ablation Study**: Compares dense-only, sparse-only, and hybrid performance
-2. **Error Analysis**: Categorizes failures by type and question category
-3. **LLM-as-Judge**: Uses LLM to evaluate answer quality
-4. **Adversarial Testing**: Tests with negated and paraphrased questions
-5. **Confidence Calibration**: Analyzes correlation between confidence and correctness
-6. **Interactive Dashboard**: Real-time visualizations of all metrics
-
-## 📈 Expected Results
-
-Based on typical performance:
-
-| Metric | Dense Only | Sparse Only | Hybrid (RRF) |
-|--------|-----------|-------------|--------------|
-| MRR | 0.45-0.60 | 0.40-0.55 | **0.55-0.70** |
-| NDCG@5 | 0.50-0.65 | 0.45-0.60 | **0.60-0.75** |
-| BERTScore F1 | 0.65-0.75 | 0.60-0.70 | **0.70-0.80** |
-
-Hybrid approach typically outperforms individual methods by 10-20%.
-
-## 🎯 Key Features
-
-### Data Collection
-- ✅ 200 fixed Wikipedia URLs (diverse topics)
-- ✅ 300 random URLs per run
-- ✅ Intelligent chunking (200-400 tokens, 50-token overlap)
-- ✅ Metadata tracking (URL, title, chunk IDs)
-
-### Retrieval System
-- ✅ Dense retrieval with sentence-transformers
-- ✅ Sparse retrieval with BM25
-- ✅ Reciprocal Rank Fusion (k=60)
-- ✅ Configurable top-K and top-N
-
-### Generation
-- ✅ Flan-T5-base for answer generation
-- ✅ Context-aware prompting
-- ✅ Configurable generation parameters
-
-### Evaluation
-- ✅ 100 diverse questions (factual, comparative, inferential, multi-hop)
-- ✅ 3 comprehensive metrics (MRR, BERTScore, NDCG)
-- ✅ Ablation studies
-- ✅ Error analysis with categorization
-- ✅ Rich visualizations
-
-### User Interface
-- ✅ Interactive Streamlit app
-- ✅ Real-time query processing
-- ✅ Source visualization with scores
-- ✅ Performance metrics display
-- ✅ Response time tracking
-
-## 🔧 Configuration
-
-Edit `config.yaml` to customize:
-
-```yaml
-models:
-  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
-  generation_model: "google/flan-t5-base"
-
-retrieval:
-  dense:
-    top_k: 20
-  sparse:
-    top_k: 20
-  rrf:
-    k: 60
-    final_top_n: 5
-```
-
-## 📝 Fixed URLs
-
-The 200 fixed Wikipedia URLs cover diverse topics:
-
-- **Science**: Physics, Chemistry, Biology, Astronomy, Geology
-- **Technology**: AI, Computer Science, Robotics, Internet, Quantum Computing
-- **History**: Ancient Egypt, Roman Empire, WWII, Renaissance
-- **Geography**: Mountains, Rivers, Oceans, Countries
-- **Arts**: Famous artists, Classical music, Literature
-- **Sports**: Olympic Games, FIFA World Cup, Cricket
-- **Philosophy**: Major philosophers, Ethics, Metaphysics
-- **Mathematics**: Calculus, Linear Algebra, Statistics
-- **Medicine**: Anatomy, Genetics, Immunology
-
-Full list in `data/fixed_urls.json`
-
-## 🐛 Troubleshooting
-
-### Issue: Out of Memory
-**Solution**: Reduce batch size in `config.yaml` or use smaller model
-
-### Issue: Slow Indexing
-**Solution**: Use GPU if available, or reduce corpus size for testing
-
-### Issue: Low Scores
-**Solution**: 
-- Check if questions match corpus topics
-- Adjust RRF k parameter
-- Try different embedding models
-
-### Issue: Import Errors
-**Solution**: 
-```bash
-pip install --upgrade -r requirements.txt
-```
-
-## 📊 Sample Output
-
-```
-OVERALL RESULTS:
-  MRR:           0.6234
-  NDCG@5:        0.6891
-  BERTScore F1:  0.7456
-  Precision@5:   0.4200
-  Recall@5:      0.5834
-  ROUGE-L:       0.3987
-
-Performance by Question Type:
-  factual: MRR=0.72, NDCG=0.75
-  comparative: MRR=0.58, NDCG=0.65
-  inferential: MRR=0.51, NDCG=0.61
-  multi_hop: MRR=0.49, NDCG=0.58
-```
-
-## 🎓 Academic Context
-
-This project is designed for educational purposes as part of a Conversational AI assignment. It demonstrates:
-- Modern RAG architecture
-- Hybrid retrieval techniques
-- Comprehensive evaluation methodologies
-- Best practices in ML system development
-
-## 🤝 Contributing
-
-This is an educational project. Feel free to:
-- Experiment with different models
-- Add new evaluation metrics
-- Improve the UI
-- Optimize performance
+### ✅ Submission Requirements
+- [x] Python source code (24 files)
+- [x] PDF evaluation report
+- [x] Screenshots (3+)
+- [x] README documentation
+- [x] 100-question dataset
+- [x] Evaluation results (300 rows)
+
+---
 
 ## 📄 License
 
-This project is for educational purposes only.
-
-## 🙏 Acknowledgments
-
-- **Sentence Transformers**: For embedding models
-- **FAISS**: For efficient vector search
-- **Rank-BM25**: For keyword retrieval
-- **Hugging Face**: For LLM models
-- **Streamlit**: For the UI framework
+This project is submitted as part of BITS Pilani Conversational AI coursework.
 
 ---
 
-## 🚀 Quick Start Commands
+**Repository:** [https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation)
 
-```bash
-# Full pipeline (run in order)
-python src/data_collection.py
-python -c "from src.rag_system import HybridRAGSystem; rag = HybridRAGSystem(); rag.load_corpus(); rag.build_dense_index(); rag.build_sparse_index()"
-python src/question_generation.py
-python evaluation/pipeline.py
-streamlit run app.py
-```
-
-**Total setup time**: ~1-2 hours
-**Total execution time**: ~2-3 hours
-
----
-
-**Built with ❤️ for Conversational AI**
+**Last Updated:** February 7, 2026

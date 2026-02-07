@@ -1,0 +1,53 @@
+# Core RAG Components
+sentence-transformers>=2.2.2
+faiss-cpu>=1.9.0
+rank-bm25==0.2.2
+transformers>=4.35.2
+torch>=2.6.0
+
+# Wikipedia Data Collection
+wikipedia-api>=0.6.0
+beautifulsoup4>=4.12.0
+requests>=2.31.0
+lxml>=4.9.0
+
+# NLP and Text Processing
+nltk>=3.8.0
+# spacy removed - takes too long to build from source on Python 3.13
+# tiktoken for token counting
+tiktoken>=0.5.0
+
+# Evaluation Metrics
+rouge-score>=0.1.2
+bert-score>=0.3.13
+scikit-learn>=1.4.0  # Use newer version compatible with Python 3.13
+scipy>=1.12.0  # Use newer version with Python 3.13 wheels
+
+# LLM and Generation
+accelerate>=0.25.0
+# bitsandbytes removed - may not have Python 3.13 wheels
+
+# UI Framework
+streamlit>=1.29.0
+# gradio removed - may cause issues
+
+# Vector Database Alternatives
+# chromadb removed - causes dependency conflicts
+
+# Visualization and Reporting
+matplotlib>=3.8.0
+seaborn>=0.13.0
+plotly>=5.18.0
+pandas>=2.1.0
+numpy>=1.26.0
+
+# Report Generation
+# fpdf removed - use reportlab only
+reportlab>=4.0.0
+jinja2>=3.1.0
+
+# Utilities
+tqdm>=4.66.0
+python-dotenv>=1.0.0
+pyyaml>=6.0.0
+jsonlines>=4.0.0

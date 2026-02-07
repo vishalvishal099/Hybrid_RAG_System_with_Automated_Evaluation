@@ -92,6 +92,7 @@ def evaluate_system(rag_system, questions, method="hybrid"):
             
             # Store detailed results
             results.append({
+                'question_id': f"Q{i+1:03d}",  # Add explicit question ID
                 'question': q['question'],
                 'expected_url': q['source_url'],
                 'retrieved_top1_url': result['sources'][0].get('url') if result['sources'] else None,
