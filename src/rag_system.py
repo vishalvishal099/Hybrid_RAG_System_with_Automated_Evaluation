@@ -387,7 +387,7 @@ class HybridRAGSystem:
     
     def generate_answer(self, query: str, context_chunks: List[Dict]) -> Dict:
         """
-        Generate answer using LLM with retrieved context
+        Generate answer using LLM with retrieved context - optimized for complete, grounded answers
         """
         start_time = time.time()
         
@@ -400,46 +400,54 @@ class HybridRAGSystem:
                 'generation_time': time.time() - start_time
             }
         
-        # Use top 3 chunks for focused, relevant context
-        top_chunks = context_chunks[:3]
+        # Use top 5 chunks for better coverage
+        top_chunks = context_chunks[:5]
         context_parts = []
         for i, chunk in enumerate(top_chunks, 1):
-            # Take first 500 chars from each chunk - enough for complete info
-            text_snippet = chunk['text'][:500].strip()
-            context_parts.append(f"{text_snippet}")
+            # Take meaningful chunk from each source
+            text_snippet = chunk['text'][:450].strip()
+            # Clean up the snippet
+            if not text_snippet.endswith('.'):
+                # Try to end at last complete sentence
+                last_period = text_snippet.rfind('.')
+                if last_period > 200:  # Only if we have substantial text before it
+                    text_snippet = text_snippet[:last_period + 1]
+            context_parts.append(f"[{i}] {text_snippet}")
         
         full_context = "\n\n".join(context_parts)
         
-        # Strict grounding prompt - forces model to use ONLY the provided context
-        prompt = f"""Answer the question using ONLY the information provided in the context below. Do not use any external knowledge. If the context doesn't contain the answer, say "I cannot answer based on the provided information."
+        # Clear instruction for complete answers
+        prompt = f"""Using ONLY the information from the sources below, write a clear and complete answer to the question. Your answer should be 2-3 complete sentences with proper punctuation.
 
-Context from Wikipedia:
+Sources:
 {full_context}
 
 Question: {query}
 
-Answer based strictly on the context above:"""
+Complete answer:"""
         
-        # Tokenize - keep moderate length for speed
+        # Tokenize
         inputs = self.tokenizer(
             prompt,
             return_tensors="pt",
-            max_length=768,  # Balanced for speed and context
+            max_length=900,  # Enough for good context
             truncation=True
         )
         
         if torch.cuda.is_available():
             inputs = {k: v.cuda() for k, v in inputs.items()}
         
-        # Generate with balanced parameters - fast but complete
+        # Generate - balanced for quality and speed
         with torch.no_grad():
             outputs = self.generation_model.generate(
                 **inputs,
-                max_new_tokens=150,  # Enough for 2-3 complete sentences
-                min_length=20,
-                do_sample=False,  # Greedy decoding for consistency
-                num_beams=2,  # Minimal beams for speed
+                max_new_tokens=180,  # Enough for complete sentences
+                min_length=40,  # Ensure substantial answer
+                do_sample=False,  # Greedy for consistency
+                num_beams=3,  # Slight improvement over greedy
                 no_repeat_ngram_size=3,
+                length_penalty=1.2,  # Encourage complete answers
+                early_stopping=False,  # Let it complete naturally
                 pad_token_id=self.tokenizer.pad_token_id,
                 eos_token_id=self.tokenizer.eos_token_id
             )
@@ -447,58 +455,96 @@ Answer based strictly on the context above:"""
         # Decode
         answer = self.tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
         
-        # Remove HTML entities like <br />, &nbsp;, etc.
+        # Clean up HTML and formatting
         import re
-        answer = re.sub(r'<[^>]+>', '', answer)  # Remove HTML tags
-        answer = re.sub(r'&[a-z]+;', ' ', answer)  # Remove HTML entities
-        answer = re.sub(r'\s+', ' ', answer).strip()  # Normalize whitespace
+        answer = re.sub(r'<[^>]+>', '', answer)
+        answer = re.sub(r'&[a-z]+;', ' ', answer)
+        answer = re.sub(r'\s+', ' ', answer).strip()
         
-        # Check if answer says it cannot answer (respecting context limitation)
+        # Fix incomplete answers - ensure proper sentence endings
+        if answer and not answer[-1] in '.!?':
+            # Find last complete sentence
+            for delimiter in ['. ', '! ', '? ']:
+                if delimiter in answer:
+                    last_idx = answer.rfind(delimiter[0])
+                    if last_idx > len(answer) * 0.6:  # Keep if we're losing less than 40%
+                        answer = answer[:last_idx + 1]
+                        break
+            
+            # If still incomplete, try to complete it
+            if answer and answer[-1] not in '.!?':
+                # Remove trailing incomplete phrase after last comma
+                if ', ' in answer:
+                    last_comma = answer.rfind(',')
+                    if last_comma > len(answer) * 0.7:  # Only trim if near the end
+                        answer = answer[:last_comma] + '.'
+                    else:
+                        answer = answer + '.'
+                else:
+                    answer = answer.rstrip(' ,:;-') + '.'
+        
+        # Quality check
         cannot_answer_phrases = [
-            "cannot answer",
-            "don't have enough information",
-            "not provided in the context",
-            "not mentioned",
-            "no information"
+            "cannot answer", "no information", "not mentioned",
+            "not provided", "don't have"
         ]
         
-        # Validate answer quality and grounding
         answer_lower = answer.lower()
-        is_valid_answer = (
-            len(answer) >= 10 and 
-            any(c.isalpha() for c in answer) and 
-            answer.count('[') <= 3 and
-            not any(phrase in answer_lower for phrase in cannot_answer_phrases)
+        has_ending = answer and answer[-1] in '.!?'
+        is_valid = (
+            len(answer) >= 30 and 
+            has_ending and
+            not any(phrase in answer_lower for phrase in cannot_answer_phrases) and
+            answer.count('[') <= 5  # Allow some references but not excessive
         )
         
-        if not is_valid_answer:
-            # Answer is garbled or says "cannot answer", use extractive fallback from context
-            # This ensures we ALWAYS return information from the retrieved Wikipedia pages
-            best_text = " ".join([chunk['text'] for chunk in top_chunks[:2]])  # Use top 2 chunks
-            sentences = best_text.split('.')
+        if not is_valid:
+            # Extractive fallback - build answer from source text
+            all_text = " ".join([chunk['text'] for chunk in top_chunks[:3]])
             
-            # Look for sentences containing query keywords
-            query_words = set(query.lower().split()) - {'what', 'who', 'when', 'where', 'why', 'how', 'is', 'are', 'the', 'a', 'an'}
-            relevant_sentences = []
+            # Split into proper sentences
+            sentences = []
+            for match in re.finditer(r'[^.!?]+[.!?]', all_text):
+                sent = match.group().strip()
+                if len(sent) > 30:  # Substantial sentence
+                    sentences.append(sent)
             
+            # Score sentences by relevance to query
+            query_words = set(query.lower().split()) - {
+                'what', 'who', 'when', 'where', 'why', 'how', 'is', 'are',
+                'the', 'a', 'an', 'in', 'on', 'at', 'to', 'for', 'of'
+            }
+            
+            scored = []
             for sent in sentences:
-                sent = sent.strip()
-                if len(sent) > 40:  # Substantial sentence
-                    sent_lower = sent.lower()
-                    # Count keyword matches
-                    matches = sum(1 for word in query_words if word in sent_lower)
-                    if matches > 0:
-                        relevant_sentences.append((matches, sent))
+                sent_lower = sent.lower()
+                # Count keyword matches
+                score = sum(1 for word in query_words if word in sent_lower)
+                # Boost score if sentence is near beginning (more likely to be definitional)
+                if sentences.index(sent) < 5:
+                    score += 0.5
+                if score > 0:
+                    scored.append((score, sent))
             
-            if relevant_sentences:
-                # Sort by number of matches and take best sentences
-                relevant_sentences.sort(reverse=True, key=lambda x: x[0])
-                answer = relevant_sentences[0][1] + "."
-                # Add more sentences for complete answer (up to 3 sentences)
-                if len(relevant_sentences) > 1:
-                    answer += " " + relevant_sentences[1][1] + "."
-                if len(relevant_sentences) > 2 and len(answer) < 200:
-                    answer += " " + relevant_sentences[2][1] + "."
+            if scored:
+                # Sort by relevance
+                scored.sort(reverse=True, key=lambda x: x[0])
+                
+                # Build answer from best sentences
+                answer_sentences = []
+                total_len = 0
+                for score, sent in scored[:4]:  # Take up to 4 best sentences
+                    if total_len + len(sent) <= 400:  # Keep answer reasonable
+                        answer_sentences.append(sent)
+                        total_len += len(sent)
+                        if len(answer_sentences) >= 2:  # At least 2 sentences
+                            break
+                
+                if answer_sentences:
+                    answer = ' '.join(answer_sentences)
+                else:
+                    # Last resort - use first sentence
+                    answer = sentences[0] if sentences else "Information not found."
             else:
                 # Fallback to first substantial sentences
                 selected = []
@@ -510,7 +556,8 @@ Answer based strictly on the context above:"""
                 if selected:
                     answer = ". ".join(selected) + "."
                 else:
-                    answer = best_text[:250] + "..."
+                    # Very last fallback
+                    answer = top_chunks[0]['text'][:250].strip() + "..."
         
         generation_time = time.time() - start_time
         

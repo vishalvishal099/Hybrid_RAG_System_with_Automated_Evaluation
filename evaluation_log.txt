@@ -1,0 +1,780 @@
+
+================================================================================
+CHROMADB HYBRID RAG SYSTEM - FAST EVALUATION
+================================================================================
+
+⚡ This version skips BERTScore for faster evaluation
+   Expected total time: ~15 minutes for 100 questions × 3 methods
+
+📂 Loading evaluation data...
+✓ Loaded 100 questions
+
+🔧 Loading RAG system...
+🔧 Initializing ChromaDB Hybrid RAG...
+✓ System initialized
+  - ChromaDB vectors: 7519
+  - BM25 documents: 7519
+  - Corpus chunks: 7519
+✓ RAG system loaded
+
+🔍 Evaluating with dense retrieval...
+⏱️  Expected time: ~150 seconds (2.5 minutes)
+Evaluating dense:   0%|          | 0/100 [00:00<?, ?it/s]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 55b2d5db-cc01-487e-98ab-42913114a7ac)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: ee503913-3381-467e-b4d5-9e735ff1959b)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 3943cf48-5ba9-4083-9fa4-79f2c4c5b63b)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 4a1d43e0-9cc1-4896-8dad-201a1e759e94)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 3607deaa-9e35-41d5-9bf9-e6f360665b41)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 719e27b4-eee6-46f3-904b-4c317375b624)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:   1%|          | 1/100 [01:41<2:48:08, 101.90s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 82fe8f64-17fd-4d02-9499-ebc1f17d997e)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 26ec9653-4f3d-4c2c-a307-4c8c1e9656d8)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 0c2977d5-5f28-4d1e-9f98-bec6b6fcb1f2)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: ea440d6b-1b4f-4612-8192-02ae51191fbd)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 269c2772-45c1-49eb-bf52-54c0acdfe7da)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: f1332e58-458b-4bf1-9f89-22dbbd345382)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:   2%|▏         | 2/100 [03:28<2:51:21, 104.92s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 9677e317-9187-4d83-adbf-4627b2261e20)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: f533f7b2-7b3e-44d2-a1ee-76f26fe2ba4f)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 0fb4a7da-568b-47a6-b05e-cec6b509f2d8)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 85176fba-3124-47d4-a121-1ef24259aec6)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 624928d4-4776-431f-8b10-4e5f76ad56b2)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 72ac99b1-2129-45bb-bfbf-2660199307e4)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:   3%|▎         | 3/100 [05:10<2:47:16, 103.47s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 788c832f-96cf-4e58-a484-9a6a87259871)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: e97a7b8e-9dd6-4e9a-abd1-e6d22bb8e219)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 74356d48-4eb4-4e26-98dd-780b546a9510)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 5277a37f-fd45-4d98-919a-0fe79b225f32)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 8c7df7c0-f8b7-4157-98db-ef41789e7e24)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 272bbee8-61fc-410f-8d96-5613f49b4703)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:   4%|▍         | 4/100 [06:52<2:44:25, 102.77s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 28f6f064-c69e-4bc4-aeb7-c73d904dbd7a)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 26f075a6-17ce-479f-bc80-44506886701a)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: d0e6fc08-8ec7-458b-b577-75786517d3bc)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: a56d0d01-141f-4f0b-9b32-e766a33fe177)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: bf5831ba-4f6a-4986-9ff6-e9ba62023a08)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: b5576b9f-cf02-483f-a83b-27cdfe3a68ed)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:   5%|▌         | 5/100 [08:34<2:42:06, 102.38s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 104ef480-918a-46d6-8df0-9ce66ed47cb6)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 4e13289d-75eb-4a11-988a-58c67822517f)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: dcfb5609-eff1-464a-aa93-2af4f3454ea5)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: ada1fe76-f1e9-4b48-8e06-1c45076b07dd)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 8ea92b80-b769-4fd3-88f6-8055c3e5ae3b)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: aec20f43-832b-4b29-93c5-0fc9ba912c58)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:   6%|▌         | 6/100 [10:17<2:40:57, 102.73s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: ce392379-4040-4352-a749-96882b8dd4b4)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 038b68f3-41c1-4fba-ab11-a5a9535d4ff6)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: d081be41-fc40-4533-bd40-4e1d3a0a59e3)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 38e860d3-b356-4242-82a0-759f8b2e69c1)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 047d1421-b52c-4614-85d6-edaf755a3ec4)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: d2693837-4a36-43f9-aab9-3df8aabbd433)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:   7%|▋         | 7/100 [11:59<2:38:45, 102.43s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: bca2df09-fc79-40be-8d4a-3126f4ad886c)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: da8115bd-45b3-4127-8ff5-84535538d9c2)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 91dd35ce-1c47-438a-9c2b-27e726281a10)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: a6622ee6-a1ac-4485-835e-f97f6131f39b)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 670835c9-f9de-4f06-8853-c48391d8340b)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 91786a08-f6e6-4079-bb19-95dcd578b897)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:   8%|▊         | 8/100 [13:41<2:36:43, 102.21s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: cc2986f2-ab25-4f7a-b8d6-78f1f94679f4)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: ae2a615c-e738-4b29-bd08-b01ad30dfe1b)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 1a79a33f-26a7-4daa-b760-534d98d72007)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 1dc4a9a3-4c24-471a-bd07-fa85db1daec4)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 87f036cb-1e36-46c1-90cb-bf40a69f7d7c)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: d01cadcb-2715-488c-8d97-004989d44714)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:   9%|▉         | 9/100 [15:22<2:34:49, 102.08s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: b8ecc809-e70b-4650-88bc-fad8b9a2345a)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 17760afd-f64d-4439-8785-86a35bd9a80c)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: fd23ee01-f6e1-492d-9ecf-0f19c41f86e9)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 653ba0ee-338e-4009-b625-22fc39d81807)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: ed5542f4-87c3-4b61-8b11-b696bdc219b3)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: f0c33e59-e06d-4a2a-a5f1-aea0f21b1488)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  10%|█         | 10/100 [17:05<2:33:14, 102.16s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 5f23cabf-a361-44df-bfda-05d60faa9aaf)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: d57133e8-0ed9-464e-a49b-72093db62f07)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: d17b7f0a-bc57-431f-acaf-d1eae6723b86)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: aaf63a3d-a37a-4550-9ade-0c35d15f3f24)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 295d14da-1a26-4931-852b-5d2090fead6a)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 3860b950-a4f0-4aa6-b8db-62a546d278c6)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  11%|█         | 11/100 [18:46<2:31:19, 102.01s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 17fb45c1-2ead-4e5d-92b8-6c0160e0a1e6)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 5c8930db-f535-4176-8508-b24a19e87ef0)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 611233f9-2322-4379-a15e-0099a52b98c1)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 86326520-b95f-451c-b68d-bab492647703)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 2ea0377d-4084-459f-b1df-0bd555e9c6c1)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: c4b30579-8392-4e33-8fd1-0050c4967652)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  12%|█▏        | 12/100 [20:28<2:29:31, 101.95s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 45ada201-18dc-4ee8-9452-f9e24221955e)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 567e8d49-189b-4858-acd9-4cae789ac61c)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 5abc73e3-1b42-4e8b-8c01-af269418689e)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 9b6b950e-bcf7-4039-807a-c7a2debc1589)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 32e28b8e-b1e3-4109-add3-035227300451)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 1554fe18-2b86-4e9c-bc9e-33949285fdbf)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  13%|█▎        | 13/100 [22:10<2:27:41, 101.86s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: a7f7be57-8be0-459b-93f3-48d0b490d3e4)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: ef329167-4a4c-4aab-af1d-1e51f8ce39c0)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: b3427b8a-650d-48b9-a02b-0cb737ba9710)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 37df5714-767f-4e7c-8a5b-f1452db3a27e)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: dd9fda7a-c909-4693-aef2-51d2707d4502)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 4840d761-7689-445c-90bf-d5b84e679c54)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  14%|█▍        | 14/100 [23:51<2:25:55, 101.81s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 811e6698-391b-4bb0-a4af-3a2ee4056485)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 47bd1959-2411-4ede-af2e-a373f4673415)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 0da42904-77ee-4aad-adb3-234586c8d1ca)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: c001d98e-c1a2-498e-b7e1-316dcf95ddc0)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 399b35f0-acf5-4ef8-924d-6fa416e087a1)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: db958559-04a7-4839-b247-b35e2eb3fe87)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  15%|█▌        | 15/100 [25:34<2:24:27, 101.97s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: a320bd8f-edd7-4f46-81d8-03137f205e06)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 30dccae4-dcb7-44d9-ac9e-696809fd13b0)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: fb7e7d89-8930-4c7d-b296-7f9ffc323986)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 85a6aca1-e688-4a97-a87d-a76133060a7e)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: eccd864e-13ad-411a-b7cf-e74aea88e13a)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 83a7bd45-8a8a-4948-a71a-0a7dd25e2944)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  16%|█▌        | 16/100 [27:16<2:22:39, 101.89s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: ead65737-41fc-47f5-8db7-ed07eef796d2)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 5676f701-49f0-4ee8-9e81-e328382357f9)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: a8d91626-9bf1-49cc-aeb9-9a7f7f9cf01e)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 38c23fdb-ac2d-4bac-a599-417ebc423a25)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 75ae7c08-b0e0-493c-bdfb-8c2f35f3ff3a)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 60e285d4-9432-4986-8b09-b3103e53c0a3)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  17%|█▋        | 17/100 [28:57<2:20:54, 101.86s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 61394e46-4667-470b-a9cd-62de6ebd0a40)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: f319dad0-1466-40e5-873e-699b3f2801b3)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: ad29a407-8475-4955-9447-3fbecd53b6fe)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: b7e83eeb-b8c2-43e3-97ed-9481a7344318)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 2ba0024d-e7a8-4a48-9df0-8f815a069525)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 60bb626c-99c9-46d0-ad1b-d05bb33137df)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  18%|█▊        | 18/100 [30:42<2:20:28, 102.79s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: f28cfc01-3268-4515-842a-64df45d4142e)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 4b72fb40-9a2a-40ef-98d6-201ea49d5756)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 6712549f-86f3-42f9-a91b-ea5cdce8ac25)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: b9aaf8b9-dfe0-484b-af08-4e0419e54704)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 696d12e6-8da3-406a-b682-b055d7373013)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: c819cd52-91e1-48f9-aef4-b603a46de2b0)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  19%|█▉        | 19/100 [32:24<2:18:19, 102.47s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 44c07679-0dac-4ab4-8278-95cf00fc995b)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: eedbed5d-0c32-4eba-b80c-a2a0a04f8228)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: ebec4fbc-3556-4b64-9441-7861474c724a)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 21d058ac-6aad-49a8-82f3-5963308ab649)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 5010d50a-35c9-4bc5-b55e-00517108b819)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 3cd6bf64-02fc-42c6-92f6-de9d7064be80)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  20%|██        | 20/100 [34:06<2:16:15, 102.19s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 40be868b-584d-4590-9204-c36d042c7bb8)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: cee305ad-abd6-4176-87eb-f2d05bf1916b)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: d8956ba1-fbfb-4926-9230-53804b7ac5c1)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 744d1832-445b-4aa2-9eec-ee4a9dd166af)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 19da340a-21d0-48f0-a3f4-5018e54cccb7)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 7d90a4d5-21d9-48a0-9a09-5b299353ba7a)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  21%|██        | 21/100 [35:47<2:14:17, 102.00s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 8226aa59-cb1b-43c6-a93f-779482d56858)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 76543410-3dee-4f02-b703-fb7a4d8de27a)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: a798217b-01ad-495a-be4c-9c364f63f35f)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: b3d5378c-b4e1-45ce-8b08-8a41a5460957)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: a6ecb11f-dc09-4b8f-8e1a-8cbd3e8a86ba)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 8bff9f0a-3c0c-4ec9-97a8-52a858ea027e)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  22%|██▏       | 22/100 [37:29<2:12:30, 101.93s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: fc8dd97b-c88a-4e27-944b-f070fdde2d13)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: a996cf2a-1195-493b-8057-526a2c511e64)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 8d57b5d7-df9c-4d79-8ee5-0148792b70d0)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 8c3ddd9e-7b41-45fa-bf37-17921580d72f)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: f64a04c2-4bad-4626-b132-3d5d9b3c2298)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 4557edd0-6b33-4111-a05b-0515723f484a)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  23%|██▎       | 23/100 [39:11<2:10:58, 102.05s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 1834611d-7f99-41d1-8dfb-a76c089c7472)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 59ef6155-0af3-4cce-8fa8-439cb6a83acb)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 708e8646-e135-4fa7-9508-f9262f7515b5)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: c1a0229c-703d-4566-a654-e28ce2ded75a)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: bb476ad0-6639-462c-a509-40e9f7870596)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: fea142ae-a0e6-4a90-83bf-5f0b81072b70)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  24%|██▍       | 24/100 [40:54<2:09:22, 102.13s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 72847136-08f9-4aa3-84db-f4e10ccd7340)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: e46a6507-0bc4-4832-9379-0d7656ab6638)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 4afabd75-2f9c-430a-8e88-6aa5577f42c4)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 5bde152d-cbfc-4f20-973a-9f3003a8bcb6)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 7cf1fe28-8213-424a-a126-46265c9e996e)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 2410ccd1-31e1-4bd7-aff0-855f34c87e2b)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  25%|██▌       | 25/100 [42:35<2:07:29, 101.99s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 78d902ff-9d87-4532-8fe8-28a7b183d10a)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 4ecfb621-4156-4c49-bd62-e20294b8a44c)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: d11e0e89-633c-43ab-9e01-cf0b4f74e15d)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 93a0af29-c128-4679-bafe-f1041edd8c96)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: e09dad9b-71a9-4df6-a433-8e7b8a1d917d)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: a57f5110-1b9b-4b0c-82bf-e66958be0524)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  26%|██▌       | 26/100 [54:07<5:44:09, 279.04s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 3ea40cc3-5d5f-44fe-9433-2d4a20393101)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 830e2e48-ce83-4415-b922-de783c06d7cd)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 3b2c7937-b5ba-4c23-8f4a-7a13a2c15b1d)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 721cca1d-e8f0-4237-9854-8167dabc4025)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 952db53c-bfe1-494c-ae4d-ec29cd8b8ea3)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 78a8982b-b0ea-41c5-a381-d5c4eab5d515)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  27%|██▋       | 27/100 [55:51<4:35:23, 226.35s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: bf308e2e-9330-430b-9e52-46b58fa3ce8d)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: ab6d83bc-f233-4f99-bdf7-7e09e5c1d926)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 285d5620-40ce-47d6-b4a8-29a9ae2dc11d)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 8fcd86dc-b26c-488e-a8f0-fcabe60cd750)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 21d22510-9645-47c9-9748-1c73ebfa22a1)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 526377b3-337d-412f-958e-54d74770f64f)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  28%|██▊       | 28/100 [57:33<3:46:46, 188.98s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 32e8b30f-c547-4668-990d-af2dfe8f9321)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 978591e7-9ccd-4d76-b67a-c9675cb2a454)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 72269734-aa09-46d6-9bce-d400f3726e29)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 5d6fb115-95ca-473d-aaad-be4c97b57d08)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 0e23ddf5-0bd5-4179-848e-54e69232eb90)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 8151fbeb-d291-4904-999b-f44a3f06f7fb)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  29%|██▉       | 29/100 [59:15<3:12:52, 162.99s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 6c217407-09c9-42fc-90f6-e46fbd8ae0e0)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 582169fc-5be8-4125-ba77-b092824cfe1e)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 184bfefb-a57b-4d5e-af1a-0486394cc5d6)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: db59d307-2ea2-4a48-91fd-69e908421cc6)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 3439af0a-96d5-4742-8949-489abe61f596)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: a0445cdc-1e88-4de5-a18f-8fc1496fd0d6)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  30%|███       | 30/100 [1:00:57<2:48:42, 144.60s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 5eb6ac3d-b7ee-42d9-8ca1-727a1335f382)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 1fb88af8-8b16-4400-8921-15c62fa2b103)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: f4680345-d0ee-4a03-a284-4bd587e6848e)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 8698c229-aed1-4bca-b86b-0f85561ce6b9)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 136cc2ac-e325-4645-acd3-99a2023db635)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 8ce9881d-42d3-4fa7-bda3-6987f115d996)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  31%|███       | 31/100 [1:02:38<2:31:30, 131.75s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 3bfc5108-18e6-4b88-bf46-bb2e60135c1d)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 00803e54-4444-4f4d-8409-0c6a9e04aeca)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: d8c4b4cc-aacc-4123-8a40-890ae2bac786)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 5a91f0a5-f801-4ce6-86a5-2fbcebd3a2b2)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: b02af640-75ae-487c-9328-d08d82336f05)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: cccb28cf-20d4-4568-bfca-086aa151abea)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  32%|███▏      | 32/100 [1:04:21<2:19:18, 122.92s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: d82d62ae-035a-4be8-9569-3da093c47ea2)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 45f34f56-0221-4e82-a3c3-ab6d46e196cb)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: f09d1605-3fbd-4e3c-a83a-7afeda72b7ee)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: c47cde17-6c0a-4d70-9f53-691e51b3d5b9)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 843facf7-f13d-45b5-8afe-5fa4a909e712)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: a87c8a39-6843-4ded-a874-a964701f641e)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  33%|███▎      | 33/100 [1:06:03<2:10:22, 116.76s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 5af68336-dc94-498a-a5ac-2834d392156b)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 62528b03-2002-4784-90c5-3c6e02441d43)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: dd51abcd-8330-4b52-adbf-83d0a498310f)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 00d96b9a-51fc-4f1b-925a-5bb4ba476a59)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: dde4abb6-6cfa-444f-99fd-723f307fa7c3)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: d68fee7d-7d2f-4b69-998d-8ea55de44ce1)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  34%|███▍      | 34/100 [1:07:45<2:03:29, 112.26s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: f172c1b6-1af5-4cce-96b7-98e0b2b520b5)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: df1a209c-7dfc-42a8-94a0-70b97ded440d)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 91619a55-23f2-4901-af38-49282c21ff55)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: fc2e6b77-9070-4063-8760-5e91d0cf3b0b)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 0d0c0084-c7d3-45a4-8dd8-64394dbdfe57)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 132b634f-8ba9-43b5-b337-1d21d6ef0038)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  35%|███▌      | 35/100 [1:09:27<1:58:23, 109.28s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 302af62f-550b-4679-8fa2-5073f7496e33)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 7e7042bf-d0ec-4f1d-96ef-0f6de87c3eb1)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 1108ab6e-a765-4e8e-9851-370cbfa9f1ef)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: a28cf9e9-303e-40eb-9fb2-c70e4266d27d)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 004e90fa-797d-4ddf-933d-65b9a6941642)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 6c583a0f-77ef-4e8b-8c12-8b6939796512)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  36%|███▌      | 36/100 [1:11:09<1:54:09, 107.02s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 449ed17c-f6e7-4c02-9809-b3f8a014908a)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 666fe6ab-b81f-4b58-8f7a-2a39788819ce)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: d7c4853f-ce5f-4d21-9a49-4fb4593e7ac2)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: c7c794f1-945a-42b0-8d1d-ae6ca7333470)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 225cee0a-e179-4068-bbae-d0be933478b2)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 508c1663-a1a7-4eaf-86f0-9e67f589b05e)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  37%|███▋      | 37/100 [1:12:51<1:50:41, 105.42s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: f42d96c4-f211-45bf-b46f-8e696d2ffc3c)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 3152447d-5068-492a-af84-ab2b09cc8008)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: ba13a12e-cd93-4f2a-a554-a9e22db1687e)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 4s [Retry 3/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 15a0847c-fc1b-4d52-80fd-e45c2fd5bb95)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 4/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 0321e416-935d-4c68-bb7b-8a67afbd299b)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 8s [Retry 5/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 4bbb86ad-c3db-431f-a7b7-6c3cf727db7c)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Evaluating dense:  38%|███▊      | 38/100 [1:14:32<1:47:48, 104.32s/it]'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 9af2da02-151d-4fee-a7f4-f9158c121c54)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: c0645820-81e0-433f-bc49-0c1fa4c47c90)')' thrown while requesting HEAD https://huggingface.co/google/flan-t5-base/resolve/main/tokenizer_config.json
+Retrying in 2s [Retry 2/5].
+Evaluating dense:  39%|███▉      | 39/100 [1:15:06<1:24:35, 83.20s/it] Evaluating dense:  40%|████      | 40/100 [1:15:11<59:33, 59.56s/it]  Evaluating dense:  41%|████      | 41/100 [1:15:20<43:52, 44.63s/it]Evaluating dense:  42%|████▏     | 42/100 [1:15:28<32:25, 33.55s/it]Evaluating dense:  43%|████▎     | 43/100 [1:15:31<23:13, 24.45s/it]Evaluating dense:  44%|████▍     | 44/100 [1:15:35<17:04, 18.30s/it]Evaluating dense:  45%|████▌     | 45/100 [1:15:41<13:12, 14.41s/it]Evaluating dense:  46%|████▌     | 46/100 [1:15:46<10:40, 11.86s/it]Evaluating dense:  47%|████▋     | 47/100 [1:15:52<08:43,  9.88s/it]Evaluating dense:  48%|████▊     | 48/100 [1:15:56<07:01,  8.10s/it]Evaluating dense:  49%|████▉     | 49/100 [1:16:06<07:24,  8.72s/it]Evaluating dense:  50%|█████     | 50/100 [1:16:09<05:56,  7.13s/it]Evaluating dense:  51%|█████     | 51/100 [1:16:16<05:47,  7.09s/it]Evaluating dense:  52%|█████▏    | 52/100 [1:16:23<05:27,  6.83s/it]Evaluating dense:  53%|█████▎    | 53/100 [1:16:27<04:42,  6.01s/it]Evaluating dense:  54%|█████▍    | 54/100 [1:16:32<04:25,  5.76s/it]Evaluating dense:  55%|█████▌    | 55/100 [1:16:38<04:26,  5.93s/it]Evaluating dense:  56%|█████▌    | 56/100 [1:16:49<05:30,  7.50s/it]Evaluating dense:  57%|█████▋    | 57/100 [1:16:55<05:00,  6.99s/it]Evaluating dense:  58%|█████▊    | 58/100 [1:17:02<04:49,  6.88s/it]Evaluating dense:  59%|█████▉    | 59/100 [1:17:12<05:18,  7.76s/it]Evaluating dense:  60%|██████    | 60/100 [1:17:23<05:49,  8.73s/it]Evaluating dense:  61%|██████    | 61/100 [1:17:34<06:12,  9.55s/it]Evaluating dense:  62%|██████▏   | 62/100 [1:17:41<05:29,  8.66s/it]Evaluating dense:  63%|██████▎   | 63/100 [1:17:46<04:46,  7.73s/it]Evaluating dense:  64%|██████▍   | 64/100 [1:17:50<03:53,  6.47s/it]Evaluating dense:  65%|██████▌   | 65/100 [1:17:55<03:39,  6.27s/it]Evaluating dense:  66%|██████▌   | 66/100 [1:17:59<03:02,  5.38s/it]Evaluating dense:  67%|██████▋   | 67/100 [1:18:03<02:44,  4.98s/it]Evaluating dense:  68%|██████▊   | 68/100 [1:18:15<03:43,  7.00s/it]Evaluating dense:  69%|██████▉   | 69/100 [1:18:17<02:59,  5.78s/it]Evaluating dense:  70%|███████   | 70/100 [1:18:28<03:33,  7.13s/it]Evaluating dense:  71%|███████   | 71/100 [1:18:33<03:09,  6.55s/it]Evaluating dense:  72%|███████▏  | 72/100 [1:18:39<03:03,  6.54s/it]Evaluating dense:  73%|███████▎  | 73/100 [1:18:43<02:29,  5.55s/it]Evaluating dense:  74%|███████▍  | 74/100 [1:18:47<02:12,  5.08s/it]Evaluating dense:  75%|███████▌  | 75/100 [1:18:57<02:48,  6.76s/it]Evaluating dense:  76%|███████▌  | 76/100 [1:19:01<02:17,  5.75s/it]Evaluating dense:  77%|███████▋  | 77/100 [1:19:05<02:05,  5.44s/it]Evaluating dense:  78%|███████▊  | 78/100 [1:19:16<02:35,  7.06s/it]Evaluating dense:  79%|███████▉  | 79/100 [1:19:20<02:09,  6.16s/it]Evaluating dense:  80%|████████  | 80/100 [1:19:27<02:04,  6.23s/it]Evaluating dense:  81%|████████  | 81/100 [1:19:33<01:56,  6.11s/it]Evaluating dense:  82%|████████▏ | 82/100 [1:19:44<02:19,  7.74s/it]Evaluating dense:  83%|████████▎ | 83/100 [1:19:49<01:58,  6.97s/it]Evaluating dense:  84%|████████▍ | 84/100 [1:19:53<01:34,  5.92s/it]Evaluating dense:  85%|████████▌ | 85/100 [1:20:04<01:53,  7.60s/it]Evaluating dense:  86%|████████▌ | 86/100 [1:20:11<01:41,  7.27s/it]Evaluating dense:  87%|████████▋ | 87/100 [1:20:14<01:18,  6.02s/it]Evaluating dense:  88%|████████▊ | 88/100 [1:20:21<01:15,  6.33s/it]Evaluating dense:  89%|████████▉ | 89/100 [1:20:25<01:02,  5.66s/it]Evaluating dense:  90%|█████████ | 90/100 [1:20:30<00:54,  5.42s/it]Evaluating dense:  91%|█████████ | 91/100 [1:20:42<01:05,  7.30s/it]Evaluating dense:  92%|█████████▏| 92/100 [1:20:47<00:53,  6.71s/it]Evaluating dense:  93%|█████████▎| 93/100 [1:20:52<00:44,  6.35s/it]Evaluating dense:  94%|█████████▍| 94/100 [1:20:56<00:33,  5.54s/it]Evaluating dense:  95%|█████████▌| 95/100 [1:21:03<00:29,  5.92s/it]Evaluating dense:  96%|█████████▌| 96/100 [1:21:07<00:22,  5.53s/it]Evaluating dense:  97%|█████████▋| 97/100 [1:21:14<00:17,  5.70s/it]Evaluating dense:  98%|█████████▊| 98/100 [1:21:25<00:14,  7.37s/it]Evaluating dense:  99%|█████████▉| 99/100 [1:21:30<00:06,  6.57s/it]Evaluating dense: 100%|██████████| 100/100 [1:21:36<00:00,  6.46s/it]Evaluating dense: 100%|██████████| 100/100 [1:21:36<00:00, 48.96s/it]
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is Specially protected areas?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: e4c53587-b635-48dd-a9e2-5123f8be7f9b)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is Carbon concentrating mechanisms?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: 7f1b7227-4aed-4002-81d8-ca01a15d5604)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is The fixation or?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: a727e500-95d8-4dc1-adb8-f8059696b480)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: How are Construct validity and Rank of a group rel...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: 716a1210-3bb9-4439-96a5-d08f9e06ea50)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is This product is?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: e9341d6a-e1f0-46ba-8ddf-8fa7905f34fe)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is History of exploration?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: ad4078c0-ca6c-4ecf-aec0-b5d8f02d9994)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What are the similarities between Kai yang and Bio...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: 6d912b38-401d-4d30-859f-c7d3e2858f52)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: Who is associated with The Bobby Broom Trio?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: 4664a608-f914-49d6-89a7-645d22b04da6)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: Who discovered Game theory?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: 9e210088-b353-4c68-ac80-2620a096ca0a)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is the difference between Enzyme and Genetics...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: a6928237-82c1-462a-954e-a4491bb30a14)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: How does Symphony work?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: ce603adb-2831-43dd-b522-9ec06135bf60)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is the difference between Guitar and Curtis P...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: f60a061b-cabf-4cff-8796-655f8dfdd8fb)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is The simple carbon?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: 4958c98a-202c-4f36-870b-6f11de2bc823)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is Under these conditions,?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: decbba54-1dab-4775-ba5f-965b84005bae)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: Where is Database located?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: bc206bba-d6ee-4016-94a2-e175eb392c22)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: How are Existentialism and Stadio dei Marmi relate...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: d94b884a-78b2-45e1-adf1-79bfbe91f416)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is Depending on the?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: c28d4afb-b8f7-46ac-92fc-b2d81325fe55)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is This process is?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: c8423fff-86a8-4d52-8cd0-9d95d95f700c)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is There are more?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: c0047a72-37de-4d22-be9a-1aecf5eb2959)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: Why was 1980 United States presidential election i...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: d268dc70-6553-4b42-9713-a81f40a40681)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: Compare Antarctica and World War I....
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: b72bc30b-ec0b-4385-b37a-e1c21e33461d)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What does Acid–base reaction mean?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: 5beecf63-9167-4885-a8c5-58dc761ff931)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: How are J. R. R. Tolkien and Blues related?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: be292c3a-4b7e-4f70-b167-66c40aefbd81)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is Ecosystems are impacted?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: f04a80fa-f6c3-4bd4-bcb6-e7dd028fdba3)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What are the main features of Misha Lajovic?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: 50d070dc-ad4b-40c6-883a-ee925ba58e4d)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: How are John V, Count of Nassau-Siegen and Groote ...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: 8b88808f-c339-49d5-b586-20b2e961b60a)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What are the similarities between Galloping Hogan ...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: f83f2ba7-33ec-489f-b64e-594f0a8e7956)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: How do Number theory and Block party differ?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: 687e9c00-6eca-490f-b04a-846f1e9600d1)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: When did Madagascar happen?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: 8b07764d-a68b-4342-b1e2-80bf6da503e7)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is In analogy to?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: 1493f40c-c4a4-4dbc-ada7-72b2d3e6bad7)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: How does Sandy Bay, Tasmania work?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: fff2790b-c988-46d7-8ffd-aaae926bc021)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: When did The Kagestar happen?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: 4512552b-11ed-46ab-823d-4d2363e78486)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is On the basis?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: c0bf97ed-8368-40d5-b4cd-271a036b7e43)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is Most (five out?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: c843a18c-e347-48fa-b5c2-f9077f303a78)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: How are Nile and Limping for a Generation related?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: 6b6dddad-7060-42be-8f49-7a396185a158)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: How are Nancy Drexel and Madagascar related?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: 7f9fe223-c395-411b-9be2-17279b113c3a)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is The Convention for?...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: cee545d7-e831-4084-95ec-aa936c85db4d)')
+
+📥 Loading generation model...
+
+⚠️ Error processing question: What is the difference between Karl Haushofer and ...
+   Error: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=None)"), '(Request ID: 5962149f-d2fd-4a14-a9fc-c28228f97f16)')
+
+📥 Loading generation model...
+✓ Model loaded on CPU
+
+  Progress: 40/100 | Avg: 112.78s/query | ETA: 112.8 min
+
+  Progress: 50/100 | Avg: 91.40s/query | ETA: 76.2 min
+
+  Progress: 60/100 | Avg: 77.38s/query | ETA: 51.6 min
+
+  Progress: 70/100 | Avg: 67.26s/query | ETA: 33.6 min
+
+  Progress: 80/100 | Avg: 59.59s/query | ETA: 19.9 min
+
+  Progress: 90/100 | Avg: 53.67s/query | ETA: 8.9 min
+
+  Progress: 100/100 | Avg: 48.96s/query | ETA: 0.0 min
+
+🔍 Evaluating with sparse retrieval...
+⏱️  Expected time: ~150 seconds (2.5 minutes)
+Evaluating sparse:   0%|          | 0/100 [00:00<?, ?it/s]Evaluating sparse:   1%|          | 1/100 [00:06<10:05,  6.12s/it]Evaluating sparse:   2%|▏         | 2/100 [00:12<10:40,  6.53s/it]Evaluating sparse:   3%|▎         | 3/100 [00:24<14:08,  8.75s/it]Evaluating sparse:   4%|▍         | 4/100 [00:27<10:46,  6.73s/it]Evaluating sparse:   5%|▌         | 5/100 [00:35<11:11,  7.06s/it]Evaluating sparse:   6%|▌         | 6/100 [00:39<09:36,  6.13s/it]Evaluating sparse:   7%|▋         | 7/100 [00:43<08:22,  5.40s/it]Evaluating sparse:   8%|▊         | 8/100 [00:53<10:34,  6.90s/it]Evaluating sparse:   9%|▉         | 9/100 [01:00<10:21,  6.83s/it]Evaluating sparse:  10%|█         | 10/100 [01:04<08:52,  5.92s/it]Evaluating sparse:  11%|█         | 11/100 [01:08<07:51,  5.30s/it]Evaluating sparse:  12%|█▏        | 12/100 [01:12<07:14,  4.94s/it]Evaluating sparse:  13%|█▎        | 13/100 [01:17<07:19,  5.05s/it]Evaluating sparse:  14%|█▍        | 14/100 [01:27<09:20,  6.52s/it]Evaluating sparse:  15%|█▌        | 15/100 [01:30<07:41,  5.43s/it]Evaluating sparse:  16%|█▌        | 16/100 [01:36<07:39,  5.47s/it]Evaluating sparse:  17%|█▋        | 17/100 [01:42<07:53,  5.70s/it]Evaluating sparse:  18%|█▊        | 18/100 [01:49<08:33,  6.26s/it]Evaluating sparse:  20%|██        | 20/100 [01:53<05:41,  4.27s/it]Evaluating sparse:  21%|██        | 21/100 [02:00<06:27,  4.91s/it]Evaluating sparse:  22%|██▏       | 22/100 [02:05<06:25,  4.94s/it]Evaluating sparse:  23%|██▎       | 23/100 [02:16<08:22,  6.52s/it]Evaluating sparse:  24%|██▍       | 24/100 [02:19<07:05,  5.60s/it]Evaluating sparse:  25%|██▌       | 25/100 [02:25<07:07,  5.71s/it]Evaluating sparse:  26%|██▌       | 26/100 [02:31<07:11,  5.83s/it]Evaluating sparse:  27%|██▋       | 27/100 [02:39<07:41,  6.32s/it]Evaluating sparse:  28%|██▊       | 28/100 [02:43<06:51,  5.72s/it]Evaluating sparse:  29%|██▉       | 29/100 [02:49<06:57,  5.88s/it]Evaluating sparse:  30%|███       | 30/100 [02:52<05:47,  4.96s/it]Evaluating sparse:  31%|███       | 31/100 [02:56<05:16,  4.59s/it]Evaluating sparse:  32%|███▏      | 32/100 [03:02<05:50,  5.16s/it]Evaluating sparse:  33%|███▎      | 33/100 [03:14<07:55,  7.09s/it]Evaluating sparse:  34%|███▍      | 34/100 [03:17<06:32,  5.94s/it]Evaluating sparse:  35%|███▌      | 35/100 [03:21<05:43,  5.28s/it]Evaluating sparse:  36%|███▌      | 36/100 [03:25<05:14,  4.92s/it]Evaluating sparse:  37%|███▋      | 37/100 [03:29<04:46,  4.55s/it]Evaluating sparse:  38%|███▊      | 38/100 [03:35<05:04,  4.91s/it]Evaluating sparse:  39%|███▉      | 39/100 [03:40<05:09,  5.07s/it]Evaluating sparse:  40%|████      | 40/100 [03:47<05:38,  5.63s/it]Evaluating sparse:  41%|████      | 41/100 [03:54<06:02,  6.15s/it]Evaluating sparse:  42%|████▏     | 42/100 [03:59<05:24,  5.59s/it]Evaluating sparse:  43%|████▎     | 43/100 [04:02<04:47,  5.05s/it]Evaluating sparse:  44%|████▍     | 44/100 [04:09<05:15,  5.63s/it]Evaluating sparse:  45%|████▌     | 45/100 [04:15<05:14,  5.72s/it]Evaluating sparse:  46%|████▌     | 46/100 [04:20<04:49,  5.35s/it]Evaluating sparse:  47%|████▋     | 47/100 [04:25<04:43,  5.35s/it]Evaluating sparse:  48%|████▊     | 48/100 [04:30<04:30,  5.20s/it]Evaluating sparse:  49%|████▉     | 49/100 [04:33<03:52,  4.55s/it]Evaluating sparse:  50%|█████     | 50/100 [04:37<03:32,  4.24s/it]Evaluating sparse:  51%|█████     | 51/100 [04:39<03:07,  3.82s/it]Evaluating sparse:  52%|█████▏    | 52/100 [04:50<04:35,  5.74s/it]Evaluating sparse:  53%|█████▎    | 53/100 [04:54<04:08,  5.28s/it]Evaluating sparse:  54%|█████▍    | 54/100 [04:59<04:08,  5.41s/it]Evaluating sparse:  55%|█████▌    | 55/100 [05:06<04:17,  5.71s/it]Evaluating sparse:  56%|█████▌    | 56/100 [05:10<03:49,  5.21s/it]Evaluating sparse:  57%|█████▋    | 57/100 [05:13<03:16,  4.58s/it]Evaluating sparse:  58%|█████▊    | 58/100 [05:20<03:37,  5.19s/it]Evaluating sparse:  59%|█████▉    | 59/100 [05:30<04:40,  6.84s/it]Evaluating sparse:  60%|██████    | 60/100 [05:38<04:43,  7.09s/it]Evaluating sparse:  61%|██████    | 61/100 [05:44<04:26,  6.83s/it]Evaluating sparse:  62%|██████▏   | 62/100 [05:52<04:30,  7.11s/it]Evaluating sparse:  63%|██████▎   | 63/100 [06:01<04:40,  7.57s/it]Evaluating sparse:  64%|██████▍   | 64/100 [06:06<04:05,  6.83s/it]Evaluating sparse:  65%|██████▌   | 65/100 [06:12<03:52,  6.64s/it]Evaluating sparse:  66%|██████▌   | 66/100 [06:15<03:12,  5.67s/it]Evaluating sparse:  67%|██████▋   | 67/100 [06:19<02:50,  5.17s/it]Evaluating sparse:  68%|██████▊   | 68/100 [06:30<03:35,  6.73s/it]Evaluating sparse:  69%|██████▉   | 69/100 [06:33<02:53,  5.59s/it]Evaluating sparse:  70%|███████   | 70/100 [06:43<03:29,  6.98s/it]Evaluating sparse:  71%|███████   | 71/100 [06:48<03:05,  6.40s/it]Evaluating sparse:  72%|███████▏  | 72/100 [06:51<02:29,  5.34s/it]Evaluating sparse:  73%|███████▎  | 73/100 [06:54<02:07,  4.71s/it]Evaluating sparse:  74%|███████▍  | 74/100 [07:00<02:11,  5.07s/it]Evaluating sparse:  75%|███████▌  | 75/100 [07:07<02:19,  5.59s/it]Evaluating sparse:  77%|███████▋  | 77/100 [07:13<01:39,  4.34s/it]Evaluating sparse:  78%|███████▊  | 78/100 [07:17<01:36,  4.40s/it]Evaluating sparse:  79%|███████▉  | 79/100 [07:26<01:55,  5.52s/it]Evaluating sparse:  80%|████████  | 80/100 [07:32<01:52,  5.60s/it]Evaluating sparse:  81%|████████  | 81/100 [07:41<02:08,  6.74s/it]Evaluating sparse:  82%|████████▏ | 82/100 [07:44<01:41,  5.62s/it]Evaluating sparse:  83%|████████▎ | 83/100 [07:52<01:44,  6.15s/it]Evaluating sparse:  84%|████████▍ | 84/100 [07:57<01:35,  5.95s/it]Evaluating sparse:  85%|████████▌ | 85/100 [08:04<01:35,  6.37s/it]Evaluating sparse:  86%|████████▌ | 86/100 [08:15<01:46,  7.59s/it]Evaluating sparse:  87%|████████▋ | 87/100 [08:20<01:29,  6.92s/it]Evaluating sparse:  88%|████████▊ | 88/100 [08:31<01:38,  8.19s/it]Evaluating sparse:  89%|████████▉ | 89/100 [08:40<01:30,  8.19s/it]Evaluating sparse:  90%|█████████ | 90/100 [08:44<01:11,  7.20s/it]Evaluating sparse:  91%|█████████ | 91/100 [08:50<01:00,  6.68s/it]Evaluating sparse:  92%|█████████▏| 92/100 [08:54<00:46,  5.77s/it]Evaluating sparse:  93%|█████████▎| 93/100 [09:00<00:40,  5.83s/it]Evaluating sparse:  94%|█████████▍| 94/100 [09:07<00:38,  6.42s/it]Evaluating sparse:  95%|█████████▌| 95/100 [09:13<00:30,  6.06s/it]Evaluating sparse:  96%|█████████▌| 96/100 [09:17<00:22,  5.54s/it]Evaluating sparse:  97%|█████████▋| 97/100 [09:22<00:15,  5.32s/it]Evaluating sparse:  98%|█████████▊| 98/100 [09:33<00:14,  7.25s/it]Evaluating sparse:  99%|█████████▉| 99/100 [09:43<00:08,  8.02s/it]Evaluating sparse: 100%|██████████| 100/100 [09:46<00:00,  6.49s/it]Evaluating sparse: 100%|██████████| 100/100 [09:46<00:00,  5.87s/it]
+
+  Progress: 10/100 | Avg: 6.45s/query | ETA: 9.7 min
+
+  Progress: 20/100 | Avg: 5.70s/query | ETA: 7.6 min
+
+  Progress: 30/100 | Avg: 5.76s/query | ETA: 6.7 min
+
+  Progress: 40/100 | Avg: 5.69s/query | ETA: 5.7 min
+
+  Progress: 50/100 | Avg: 5.54s/query | ETA: 4.6 min
+
+  Progress: 60/100 | Avg: 5.64s/query | ETA: 3.8 min
+
+  Progress: 70/100 | Avg: 5.76s/query | ETA: 2.9 min
+
+  Progress: 80/100 | Avg: 5.65s/query | ETA: 1.9 min
+
+  Progress: 90/100 | Avg: 5.83s/query | ETA: 1.0 min
+
+  Progress: 100/100 | Avg: 5.87s/query | ETA: 0.0 min
+
+🔍 Evaluating with hybrid retrieval...
+⏱️  Expected time: ~150 seconds (2.5 minutes)
+Evaluating hybrid:   0%|          | 0/100 [00:00<?, ?it/s]Evaluating hybrid:   1%|          | 1/100 [00:03<05:06,  3.09s/it]Evaluating hybrid:   2%|▏         | 2/100 [00:10<08:49,  5.41s/it]Evaluating hybrid:   3%|▎         | 3/100 [00:15<08:32,  5.28s/it]Evaluating hybrid:   4%|▍         | 4/100 [00:19<08:02,  5.03s/it]Evaluating hybrid:   5%|▌         | 5/100 [00:25<08:11,  5.18s/it]Evaluating hybrid:   6%|▌         | 6/100 [00:31<08:25,  5.38s/it]Evaluating hybrid:   7%|▋         | 7/100 [00:34<07:33,  4.88s/it]Evaluating hybrid:   8%|▊         | 8/100 [00:47<11:12,  7.31s/it]Evaluating hybrid:   9%|▉         | 9/100 [00:59<13:08,  8.66s/it]Evaluating hybrid:  10%|█         | 10/100 [01:10<14:27,  9.64s/it]Evaluating hybrid:  11%|█         | 11/100 [01:17<12:42,  8.57s/it]Evaluating hybrid:  12%|█▏        | 12/100 [01:22<11:02,  7.53s/it]Evaluating hybrid:  13%|█▎        | 13/100 [01:27<10:00,  6.90s/it]Evaluating hybrid:  14%|█▍        | 14/100 [01:32<09:12,  6.42s/it]Evaluating hybrid:  15%|█▌        | 15/100 [01:38<08:35,  6.06s/it]Evaluating hybrid:  16%|█▌        | 16/100 [01:43<08:02,  5.74s/it]Evaluating hybrid:  17%|█▋        | 17/100 [01:54<10:23,  7.51s/it]Evaluating hybrid:  18%|█▊        | 18/100 [01:58<08:33,  6.27s/it]Evaluating hybrid:  19%|█▉        | 19/100 [02:02<07:50,  5.81s/it]Evaluating hybrid:  20%|██        | 20/100 [02:08<07:40,  5.76s/it]Evaluating hybrid:  21%|██        | 21/100 [02:17<08:50,  6.71s/it]Evaluating hybrid:  22%|██▏       | 22/100 [02:23<08:32,  6.57s/it]Evaluating hybrid:  23%|██▎       | 23/100 [02:28<07:34,  5.90s/it]Evaluating hybrid:  24%|██▍       | 24/100 [02:34<07:31,  5.94s/it]Evaluating hybrid:  25%|██▌       | 25/100 [02:39<07:20,  5.87s/it]Evaluating hybrid:  26%|██▌       | 26/100 [02:44<06:43,  5.46s/it]Evaluating hybrid:  27%|██▋       | 27/100 [02:53<08:00,  6.59s/it]Evaluating hybrid:  28%|██▊       | 28/100 [02:57<07:04,  5.90s/it]Evaluating hybrid:  29%|██▉       | 29/100 [03:03<06:52,  5.80s/it]Evaluating hybrid:  30%|███       | 30/100 [03:15<08:53,  7.61s/it]Evaluating hybrid:  31%|███       | 31/100 [03:20<08:04,  7.03s/it]Evaluating hybrid:  32%|███▏      | 32/100 [03:27<07:46,  6.86s/it]Evaluating hybrid:  33%|███▎      | 33/100 [03:36<08:18,  7.44s/it]Evaluating hybrid:  34%|███▍      | 34/100 [03:47<09:34,  8.71s/it]Evaluating hybrid:  35%|███▌      | 35/100 [03:51<07:47,  7.19s/it]Evaluating hybrid:  36%|███▌      | 36/100 [03:55<06:40,  6.26s/it]Evaluating hybrid:  37%|███▋      | 37/100 [04:00<06:13,  5.93s/it]Evaluating hybrid:  38%|███▊      | 38/100 [04:07<06:20,  6.13s/it]Evaluating hybrid:  39%|███▉      | 39/100 [04:14<06:26,  6.33s/it]Evaluating hybrid:  40%|████      | 40/100 [04:26<08:09,  8.16s/it]Evaluating hybrid:  41%|████      | 41/100 [04:31<07:10,  7.30s/it]Evaluating hybrid:  42%|████▏     | 42/100 [04:40<07:18,  7.56s/it]Evaluating hybrid:  43%|████▎     | 43/100 [04:44<06:21,  6.69s/it]Evaluating hybrid:  44%|████▍     | 44/100 [04:50<05:55,  6.35s/it]Evaluating hybrid:  45%|████▌     | 45/100 [04:54<05:18,  5.80s/it]Evaluating hybrid:  46%|████▌     | 46/100 [05:01<05:24,  6.00s/it]Evaluating hybrid:  47%|████▋     | 47/100 [05:08<05:30,  6.23s/it]Evaluating hybrid:  48%|████▊     | 48/100 [05:12<05:04,  5.85s/it]Evaluating hybrid:  49%|████▉     | 49/100 [05:19<05:14,  6.16s/it]Evaluating hybrid:  50%|█████     | 50/100 [05:24<04:39,  5.59s/it]Evaluating hybrid:  51%|█████     | 51/100 [05:27<04:00,  4.91s/it]Evaluating hybrid:  52%|█████▏    | 52/100 [05:33<04:16,  5.35s/it]Evaluating hybrid:  53%|█████▎    | 53/100 [05:45<05:41,  7.27s/it]Evaluating hybrid:  54%|█████▍    | 54/100 [05:50<05:06,  6.67s/it]Evaluating hybrid:  55%|█████▌    | 55/100 [05:55<04:31,  6.02s/it]Evaluating hybrid:  56%|█████▌    | 56/100 [05:59<04:01,  5.48s/it]Evaluating hybrid:  57%|█████▋    | 57/100 [06:03<03:40,  5.14s/it]Evaluating hybrid:  58%|█████▊    | 58/100 [06:10<03:55,  5.61s/it]Evaluating hybrid:  59%|█████▉    | 59/100 [06:20<04:46,  6.98s/it]Evaluating hybrid:  60%|██████    | 60/100 [06:24<04:01,  6.03s/it]Evaluating hybrid:  61%|██████    | 61/100 [06:36<05:03,  7.79s/it]Evaluating hybrid:  62%|██████▏   | 62/100 [06:42<04:35,  7.26s/it]Evaluating hybrid:  63%|██████▎   | 63/100 [06:53<05:14,  8.50s/it]Evaluating hybrid:  64%|██████▍   | 64/100 [06:59<04:39,  7.75s/it]Evaluating hybrid:  65%|██████▌   | 65/100 [07:08<04:38,  7.95s/it]Evaluating hybrid:  66%|██████▌   | 66/100 [07:14<04:14,  7.48s/it]Evaluating hybrid:  67%|██████▋   | 67/100 [07:19<03:37,  6.60s/it]Evaluating hybrid:  68%|██████▊   | 68/100 [07:25<03:24,  6.39s/it]Evaluating hybrid:  69%|██████▉   | 69/100 [07:28<02:47,  5.39s/it]Evaluating hybrid:  70%|███████   | 70/100 [07:40<03:39,  7.33s/it]Evaluating hybrid:  71%|███████   | 71/100 [07:45<03:13,  6.67s/it]Evaluating hybrid:  72%|███████▏  | 72/100 [07:50<02:57,  6.35s/it]Evaluating hybrid:  73%|███████▎  | 73/100 [07:56<02:47,  6.22s/it]Evaluating hybrid:  74%|███████▍  | 74/100 [08:05<03:04,  7.09s/it]Evaluating hybrid:  75%|███████▌  | 75/100 [08:12<02:55,  7.01s/it]Evaluating hybrid:  76%|███████▌  | 76/100 [08:16<02:22,  5.95s/it]Evaluating hybrid:  77%|███████▋  | 77/100 [08:22<02:17,  5.99s/it]Evaluating hybrid:  78%|███████▊  | 78/100 [08:31<02:32,  6.94s/it]Evaluating hybrid:  79%|███████▉  | 79/100 [08:35<02:06,  6.02s/it]Evaluating hybrid:  80%|████████  | 80/100 [08:41<02:00,  6.02s/it]Evaluating hybrid:  81%|████████  | 81/100 [08:51<02:16,  7.20s/it]Evaluating hybrid:  82%|████████▏ | 82/100 [08:57<02:02,  6.78s/it]Evaluating hybrid:  83%|████████▎ | 83/100 [09:02<01:47,  6.34s/it]Evaluating hybrid:  84%|████████▍ | 84/100 [09:05<01:25,  5.34s/it]Evaluating hybrid:  85%|████████▌ | 85/100 [09:17<01:49,  7.33s/it]Evaluating hybrid:  86%|████████▌ | 86/100 [09:22<01:33,  6.67s/it]Evaluating hybrid:  87%|████████▋ | 87/100 [09:30<01:30,  6.94s/it]Evaluating hybrid:  88%|████████▊ | 88/100 [09:35<01:19,  6.62s/it]Evaluating hybrid:  89%|████████▉ | 89/100 [09:45<01:23,  7.60s/it]Evaluating hybrid:  90%|█████████ | 90/100 [09:51<01:11,  7.16s/it]Evaluating hybrid:  91%|█████████ | 91/100 [09:59<01:04,  7.14s/it]Evaluating hybrid:  92%|█████████▏| 92/100 [10:05<00:56,  7.07s/it]Evaluating hybrid:  93%|█████████▎| 93/100 [10:11<00:46,  6.67s/it]Evaluating hybrid:  94%|█████████▍| 94/100 [10:15<00:34,  5.81s/it]Evaluating hybrid:  95%|█████████▌| 95/100 [10:27<00:38,  7.62s/it]Evaluating hybrid:  96%|█████████▌| 96/100 [10:32<00:27,  6.84s/it]Evaluating hybrid:  97%|█████████▋| 97/100 [10:39<00:20,  6.99s/it]Evaluating hybrid:  98%|█████████▊| 98/100 [10:48<00:15,  7.65s/it]Evaluating hybrid:  99%|█████████▉| 99/100 [10:55<00:07,  7.26s/it]Evaluating hybrid: 100%|██████████| 100/100 [11:01<00:00,  7.07s/it]Evaluating hybrid: 100%|██████████| 100/100 [11:01<00:00,  6.62s/it]
+
+  Progress: 10/100 | Avg: 7.09s/query | ETA: 10.6 min
+
+  Progress: 20/100 | Avg: 6.43s/query | ETA: 8.6 min
+
+  Progress: 30/100 | Avg: 6.51s/query | ETA: 7.6 min
+
+  Progress: 40/100 | Avg: 6.66s/query | ETA: 6.7 min
+
+  Progress: 50/100 | Avg: 6.48s/query | ETA: 5.4 min
+
+  Progress: 60/100 | Avg: 6.41s/query | ETA: 4.3 min
+
+  Progress: 70/100 | Avg: 6.57s/query | ETA: 3.3 min
+
+  Progress: 80/100 | Avg: 6.52s/query | ETA: 2.2 min
+
+  Progress: 90/100 | Avg: 6.58s/query | ETA: 1.1 min
+
+  Progress: 100/100 | Avg: 6.62s/query | ETA: 0.0 min
+
+================================================================================
+EVALUATION RESULTS
+================================================================================
+
+================================================================================
+Method: DENSE
+================================================================================
+  Questions Evaluated: 62
+  Total Evaluation Time: 81.60 minutes
+
+  Retrieval Metrics:
+    Mean Reciprocal Rank (MRR):  0.3634
+    Recall@10:                    0.4194
+
+  Answer Quality Metrics:
+    Token F1:                     0.0000
+    Complete Answers:             100.0%
+
+  Performance Metrics:
+    Avg Retrieval Time:           0.074s
+    Avg Generation Time:          6.756s
+    Avg Total Time:               6.830s
+
+================================================================================
+Method: SPARSE
+================================================================================
+  Questions Evaluated: 100
+  Total Evaluation Time: 9.78 minutes
+
+  Retrieval Metrics:
+    Mean Reciprocal Rank (MRR):  0.4392
+    Recall@10:                    0.4700
+
+  Answer Quality Metrics:
+    Token F1:                     0.0000
+    Complete Answers:             100.0%
+
+  Performance Metrics:
+    Avg Retrieval Time:           0.006s
+    Avg Generation Time:          5.860s
+    Avg Total Time:               5.866s
+
+================================================================================
+Method: HYBRID
+================================================================================
+  Questions Evaluated: 100
+  Total Evaluation Time: 11.03 minutes
+
+  Retrieval Metrics:
+    Mean Reciprocal Rank (MRR):  0.3783
+    Recall@10:                    0.4300
+
+  Answer Quality Metrics:
+    Token F1:                     0.0000
+    Complete Answers:             100.0%
+
+  Performance Metrics:
+    Avg Retrieval Time:           0.084s
+    Avg Generation Time:          6.534s
+    Avg Total Time:               6.618s
+
+💾 Saving results...
+✓ Saved detailed results to: evaluation_results_chromadb.csv
+✓ Saved aggregate results to: evaluation_summary_chromadb.json
+✓ Saved comparison table to: evaluation_comparison_chromadb.csv
+
+================================================================================
+✅ EVALUATION COMPLETE!
+================================================================================
+
+⏱️  Total evaluation time: 102.41 minutes
+
+📊 Results saved to:
+  - evaluation_results_chromadb.csv (detailed per-question results)
+  - evaluation_summary_chromadb.json (aggregate metrics)
+  - evaluation_comparison_chromadb.csv (method comparison)
+
+💡 To generate visual report, run: python generate_report.py
+
+

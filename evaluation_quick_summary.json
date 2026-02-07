@@ -1,0 +1,26 @@
+[
+  {
+    "method": "dense",
+    "num_questions": 0,
+    "avg_mrr": 0,
+    "avg_recall@10": 0,
+    "avg_answer_f1": 0,
+    "avg_total_time": 0
+  },
+  {
+    "method": "sparse",
+    "num_questions": 0,
+    "avg_mrr": 0,
+    "avg_recall@10": 0,
+    "avg_answer_f1": 0,
+    "avg_total_time": 0
+  },
+  {
+    "method": "hybrid",
+    "num_questions": 0,
+    "avg_mrr": 0,
+    "avg_recall@10": 0,
+    "avg_answer_f1": 0,
+    "avg_total_time": 0
+  }
+]

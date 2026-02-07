@@ -1,0 +1,6 @@
+{
+  "total_documents": 7519,
+  "embedding_function": "sentence-transformers/all-MiniLM-L6-v2 (default)",
+  "indexing_time_seconds": 416.9957699775696,
+  "distance_metric": "cosine"
+}
