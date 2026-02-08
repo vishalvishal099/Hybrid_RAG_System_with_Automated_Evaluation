@@ -39,7 +39,7 @@
 |--------|-------------|-------------|
 | submission/01_source_code/ | All source code | [View](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation/tree/main/submission/01_source_code) |
 | submission/02_data/ | All data files | [View](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation/tree/main/submission/02_data) |
-| submission/03_vector_database/ | ChromaDB database | [View](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation/tree/main/submission/03_vector_database) |
+| submission/03_vector_database/ | ChromaDB database | Refer the instructions command to setup the vectorDB |
 | submission/04_evaluation_results/ | Evaluation outputs | [View](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation/tree/main/submission/04_evaluation_results) |
 | submission/05_reports/ | Reports (PDF, MD) | [View](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation/tree/main/submission/05_reports) |
 | submission/06_documentation/ | Documentation files | [View](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation/tree/main/submission/06_documentation) |
