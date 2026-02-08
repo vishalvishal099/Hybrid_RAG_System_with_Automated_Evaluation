@@ -8,6 +8,18 @@ A comprehensive implementation of a **Hybrid RAG System** combining **Dense Vect
 
 ---
 
+## Contributors
+
+| Name | BITS ID |
+|------|---------|
+| VISHAL SINGH | 2024AA05641 |
+| GOBIND SAH | 2024AA05643 |
+| YASH VERMA | 2024AA05640 |
+| AVISHI GUPTA | 2024AA05055 |
+| SAYAN MANNA | 2024AB05304 |
+
+---
+
 ## 🚀 Quick Start
 
 ### Prerequisites

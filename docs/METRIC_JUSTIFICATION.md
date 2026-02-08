@@ -318,15 +318,3 @@ The low F1 scores indicate a mismatch between generated answers and reference an
 | `evaluation_summary_chromadb.json` | Summary statistics | [View](https://github.com/vishalvishal099/Hybrid_RAG_System_with_Automated_Evaluation/blob/main/evaluation_summary_chromadb.json) |
 
 ---
-
-## References
-
-1. Voorhees, E. M. (1999). The TREC-8 Question Answering Track Report
-2. Rajpurkar, P., et al. (2016). SQuAD: 100,000+ Questions for Machine Comprehension
-3. Manning, C. D., et al. (2008). Introduction to Information Retrieval
-
----
-
-**Document Version:** 1.0  
-**Created:** February 7, 2026  
-**Project:** Hybrid RAG System with Automated Evaluation
