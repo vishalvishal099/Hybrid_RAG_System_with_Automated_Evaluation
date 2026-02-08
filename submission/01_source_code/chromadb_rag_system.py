@@ -227,10 +227,28 @@ Complete answer:"""
                 do_sample=False,
                 num_beams=3,
                 no_repeat_ngram_size=3,
-                length_penalty=1.2
+                length_penalty=1.2,
+                output_scores=True,
+                return_dict_in_generate=True
             )
         
-        answer = self.tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
+        # Extract confidence score from token probabilities
+        if hasattr(outputs, 'scores') and outputs.scores:
+            # Calculate average confidence across generated tokens
+            token_probs = []
+            for score in outputs.scores:
+                # Apply softmax to get probabilities
+                probs = torch.nn.functional.softmax(score[0], dim=-1)
+                # Get max probability for each token
+                max_prob = probs.max().item()
+                token_probs.append(max_prob)
+            
+            confidence = sum(token_probs) / len(token_probs) if token_probs else 0.0
+        else:
+            confidence = 0.0
+        
+        answer = self.tokenizer.decode(outputs.sequences[0] if hasattr(outputs, 'sequences') else outputs[0], 
+                                       skip_special_tokens=True).strip()
         
         # Clean up
         import re
@@ -245,7 +263,8 @@ Complete answer:"""
         
         return {
             'answer': answer,
-            'generation_time': generation_time
+            'generation_time': generation_time,
+            'confidence': round(confidence, 4)
         }
     
     def query(self, query: str, method: str = "hybrid") -> Dict:

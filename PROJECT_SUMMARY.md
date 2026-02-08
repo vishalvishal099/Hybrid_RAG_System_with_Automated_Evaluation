@@ -21,7 +21,7 @@ A comprehensive Hybrid Retrieval-Augmented Generation (RAG) system that combines
 
 ## 📦 Deliverables Checklist
 
-### ✅ Part 1: Hybrid RAG System (10 Marks)
+### ✅ Part 1: Hybrid RAG System
 
 #### 1.1 Dense Vector Retrieval ✅
 - [x] Sentence Transformer embedding model (all-MiniLM-L6-v2)
@@ -63,7 +63,7 @@ A comprehensive Hybrid Retrieval-Augmented Generation (RAG) system that combines
 
 ---
 
-### ✅ Part 2: Automated Evaluation (10 Marks)
+### ✅ Part 2: Automated Evaluation
 
 #### 2.1 Question Generation ✅
 - [x] 100 diverse Q&A pairs
@@ -76,14 +76,14 @@ A comprehensive Hybrid Retrieval-Augmented Generation (RAG) system that combines
 
 #### 2.2 Evaluation Metrics ✅
 
-**Mandatory Metric (2 Marks):**
+**Mandatory Metric:**
 - [x] **Mean Reciprocal Rank (MRR)** - URL Level
   - Detailed justification: Why it's important for RAG
   - Calculation method: 1/rank averaging
   - Interpretation: Score ranges and meanings
   - **File**: `evaluation/metrics.py` (lines 42-73)
 
-**Custom Metrics (4 Marks):**
+**Custom Metrics:**
 
 1. [x] **BERTScore F1** (Custom Metric 1)
    - **Justification**: Measures semantic similarity using contextual embeddings, crucial for RAG as it captures meaning beyond lexical matching
@@ -102,7 +102,7 @@ A comprehensive Hybrid Retrieval-Augmented Generation (RAG) system that combines
 - [x] Recall@5
 - [x] ROUGE scores (ROUGE-1, ROUGE-2, ROUGE-L)
 
-#### 2.3 Innovative Evaluation (4 Marks) ✅
+#### 2.3 Innovative Evaluation ✅
 
 **Implemented Features:**
 
@@ -266,7 +266,7 @@ ConvAI_assingment_2/
 
 ## 🎯 Scoring Breakdown
 
-### Part 1: Hybrid RAG System (10 Marks)
+### Part 1: Hybrid RAG System
 - **1.1 Dense Retrieval**: 2/2 ✅
 - **1.2 Sparse Retrieval**: 2/2 ✅
 - **1.3 RRF**: 2/2 ✅
@@ -274,7 +274,7 @@ ConvAI_assingment_2/
 - **1.5 UI**: 2/2 ✅
 - **Subtotal**: **10/10**
 
-### Part 2: Evaluation (10 Marks)
+### Part 2: Evaluation
 - **2.1 Questions**: 1/1 ✅
 - **2.2 Metrics**:
   - MRR (Mandatory): 2/2 ✅

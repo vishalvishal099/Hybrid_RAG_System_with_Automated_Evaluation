@@ -4,7 +4,7 @@
 
 ---
 
-## 📊 2.2.2 ADDITIONAL CUSTOM METRICS (4 Marks)
+## 📊 2.2.2 ADDITIONAL CUSTOM METRICS
 
 | Requirement | Status | What Exists | What's Missing |
 |-------------|--------|-------------|----------------|
@@ -30,7 +30,7 @@
 
 ---
 
-## 🔬 2.3 INNOVATIVE EVALUATION (4 Marks)
+## 🔬 2.3 INNOVATIVE EVALUATION
 
 ### Adversarial Testing
 | Requirement | Status | What Exists | What's Missing |

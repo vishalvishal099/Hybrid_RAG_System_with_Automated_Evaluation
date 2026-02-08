@@ -67,6 +67,8 @@ if 'rag_system' not in st.session_state:
     st.session_state.rag_system = None
 if 'query_history' not in st.session_state:
     st.session_state.query_history = []
+if 'last_result' not in st.session_state:
+    st.session_state.last_result = None
 
 
 @st.cache_resource
@@ -114,6 +116,9 @@ with st.sidebar:
         st.info("No queries yet")
 
 # Main content
+
+import plotly.express as px
+
 col1, col2 = st.columns([2, 1])
 
 with col1:
@@ -129,6 +134,99 @@ with col1:
         search_button = st.button("🔍 Search", type="primary", use_container_width=True)
     with col_btn2:
         clear_button = st.button("🗑️ Clear", use_container_width=True)
+
+    # Per-question breakdown
+    st.subheader("📊 Question-by-Question Analysis")
+    if st.session_state.query_history:
+        for i, q in enumerate(reversed(st.session_state.query_history[-5:]), 1):
+            st.markdown(f"**Q{i}:** {q}")
+            # Optionally show answer and metrics if available
+            if st.session_state.rag_system:
+                try:
+                    res = st.session_state.rag_system.query(q, method=method)
+                    st.write(f"Answer: {res['answer'][:100]}...")
+                    st.write(f"Retrieval Time: {res.get('retrieval_time',0):.3f}s | Generation Time: {res.get('generation_time',0):.3f}s")
+                    st.write(f"Top Score: {res['sources'][0].get('rrf_score',0):.4f}")
+                except Exception as e:
+                    st.write(f"Error: {e}")
+    else:
+        st.info("No queries yet for breakdown.")
+
+    # Chunk visualization and comparison - will show after search
+    if 'last_result' in st.session_state and st.session_state.last_result:
+        # Create two columns for visualization and chunk comparison
+        col_viz, col_chunks = st.columns([1, 1])
+        
+        with col_viz:
+            st.subheader("📈 Chunk Score Visualization")
+            try:
+                res = st.session_state.last_result
+                chunk_scores = []
+                for idx, src in enumerate(res['sources'][:10]):  # Top 10 chunks
+                    chunk_scores.append({
+                        'Chunk': f"Chunk {idx+1}",
+                        'Dense': src.get('dense_score', 0),
+                        'Sparse': src.get('sparse_score', 0),
+                        'RRF': src.get('rrf_score', 0)
+                    })
+                import pandas as pd
+                df = pd.DataFrame(chunk_scores)
+                # Melt for multi-series bar chart
+                df_melted = df.melt(id_vars=['Chunk'], value_vars=['Dense', 'Sparse', 'RRF'], 
+                                   var_name='Score Type', value_name='Score')
+                fig = px.bar(df_melted, x='Chunk', y='Score', color='Score Type', 
+                            title='Retrieval Scores by Chunk (Top 10)',
+                            barmode='group')
+                st.plotly_chart(fig, use_container_width=True)
+            except Exception as e:
+                st.error(f"Error in chunk visualization: {e}")
+        
+        with col_chunks:
+            st.subheader("🔍 Dense vs Sparse vs Hybrid Chunks")
+            try:
+                res = st.session_state.last_result
+                # Sort by dense score (top 5)
+                dense_sorted = sorted(res['sources'], key=lambda x: x.get('dense_score', 0), reverse=True)[:5]
+                # Sort by sparse score (top 5)
+                sparse_sorted = sorted(res['sources'], key=lambda x: x.get('sparse_score', 0), reverse=True)[:5]
+                # Sort by RRF/hybrid score (top 5)
+                hybrid_sorted = sorted(res['sources'], key=lambda x: x.get('rrf_score', 0), reverse=True)[:5]
+                
+                # Show comparison tabs
+                tab1, tab2, tab3 = st.tabs(["🎯 Dense Top 5", "📝 Sparse Top 5", "🔀 Hybrid Top 5"])
+                
+                with tab1:
+                    st.caption("Top 5 chunks by Dense (Vector Similarity)")
+                    for idx, src in enumerate(dense_sorted, 1):
+                        with st.expander(f"#{idx} - Score: {src.get('dense_score', 0):.4f}", expanded=(idx==1)):
+                            st.markdown(f"**{src.get('title', 'Unknown')}**")
+                            st.caption(f"🔗 [Source]({src.get('url', '#')})")
+                            st.text(src['text'][:200] + "..." if len(src['text']) > 200 else src['text'])
+                            st.caption(f"Dense: {src.get('dense_score', 0):.4f} | Sparse: {src.get('sparse_score', 0):.4f} | RRF: {src.get('rrf_score', 0):.4f}")
+                
+                with tab2:
+                    st.caption("Top 5 chunks by Sparse (BM25 Keyword)")
+                    for idx, src in enumerate(sparse_sorted, 1):
+                        with st.expander(f"#{idx} - Score: {src.get('sparse_score', 0):.4f}", expanded=(idx==1)):
+                            st.markdown(f"**{src.get('title', 'Unknown')}**")
+                            st.caption(f"🔗 [Source]({src.get('url', '#')})")
+                            st.text(src['text'][:200] + "..." if len(src['text']) > 200 else src['text'])
+                            st.caption(f"Dense: {src.get('dense_score', 0):.4f} | Sparse: {src.get('sparse_score', 0):.4f} | RRF: {src.get('rrf_score', 0):.4f}")
+                
+                with tab3:
+                    st.caption("Top 5 chunks by Hybrid (RRF Fusion)")
+                    for idx, src in enumerate(hybrid_sorted, 1):
+                        with st.expander(f"#{idx} - Score: {src.get('rrf_score', 0):.4f}", expanded=(idx==1)):
+                            st.markdown(f"**{src.get('title', 'Unknown')}**")
+                            st.caption(f"🔗 [Source]({src.get('url', '#')})")
+                            st.text(src['text'][:200] + "..." if len(src['text']) > 200 else src['text'])
+                            st.caption(f"Dense: {src.get('dense_score', 0):.4f} | Sparse: {src.get('sparse_score', 0):.4f} | RRF: {src.get('rrf_score', 0):.4f}")
+                            
+            except Exception as e:
+                st.error(f"Error showing chunks: {e}")
+    else:
+        st.subheader("📈 Chunk Score Visualization")
+        st.info("🔍 Search for a query to see chunk score visualization and retrieved chunks")
 
 with col2:
     st.info("""
@@ -157,6 +255,9 @@ if search_button and query:
         start_time = time.time()
         result = st.session_state.rag_system.query(query, method=method)
         total_time = time.time() - start_time
+    
+    # Store result for visualization
+    st.session_state.last_result = result
     
     # Display results
     st.divider()

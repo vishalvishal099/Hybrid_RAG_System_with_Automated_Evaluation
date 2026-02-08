@@ -100,26 +100,26 @@
 
 ### ✅ Evaluation Metrics
 
-- [ ] **MRR (Mandatory) - 2 Marks**
+- [ ] **MRR (Mandatory)**
   - [ ] Implemented correctly
   - [ ] URL-level (not chunk-level)
   - [ ] Detailed justification written
   - [ ] Calculation method explained
   - [ ] Interpretation guidelines provided
 
-- [ ] **BERTScore (Custom Metric 1) - 2 Marks**
+- [ ] **BERTScore (Custom Metric 1)**
   - [ ] Implemented correctly
   - [ ] Justification: Why chosen for RAG
   - [ ] Calculation: BERT embeddings → similarity → F1
   - [ ] Interpretation: Score ranges explained
 
-- [ ] **NDCG@5 (Custom Metric 2) - 2 Marks**
+- [ ] **NDCG@5 (Custom Metric 2)**
   - [ ] Implemented correctly
   - [ ] Justification: Why ranking matters
   - [ ] Calculation: DCG/IDCG formula
   - [ ] Interpretation: What scores mean
 
-### ✅ Innovation (4 Marks)
+### ✅ Innovation
 
 - [ ] **Ablation Study**
   - [ ] Compares dense vs sparse vs hybrid
@@ -197,7 +197,7 @@
 
 ## 🎯 Scoring Self-Assessment
 
-### Part 1: Hybrid RAG (10 marks)
+### Part 1: Hybrid RAG
 - Dense Retrieval (2): ___/2
 - Sparse Retrieval (2): ___/2
 - RRF (2): ___/2
@@ -205,7 +205,7 @@
 - UI (2): ___/2
 **Subtotal**: ___/10
 
-### Part 2: Evaluation (10 marks)
+### Part 2: Evaluation
 - Questions (1): ___/1
 - MRR (2): ___/2
 - Custom Metrics (4): ___/4

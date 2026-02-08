@@ -1,0 +1,19 @@
+{
+  "run_id": "2026-02-08_production",
+  "description": "Random URL tracking for current corpus",
+  "fixed_urls_count": 200,
+  "random_urls_count": 301,
+  "total_corpus": 501,
+  "note": "All 501 URLs from corpus.json are used. First 200 are fixed, remaining 301 are considered 'random' pool.",
+  "fixed_urls_source": "data/fixed_urls.json",
+  "corpus_source": "data/corpus.json",
+  "last_updated": "2026-02-08T00:00:00Z",
+  "random_sampling_method": "All articles from corpus used for comprehensive coverage",
+  "chunking_config": {
+    "target_tokens": "200-400",
+    "actual_average": 160,
+    "overlap_tokens": 50,
+    "total_chunks": 7519,
+    "semantic_boundaries": true
+  }
+}

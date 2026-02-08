@@ -207,9 +207,10 @@ class ComprehensiveEvaluationPipeline:
         self.results['ablation_results'] = results
         return results
     
-    def run_llm_judge_evaluation(self, test_cases: List[Dict], sample_size: int = 10) -> Dict:
+    def run_llm_judge_evaluation(self, test_cases: List[Dict], sample_size: int = 50) -> Dict:
         """
         LLM-as-judge evaluation on sample of test cases
+        Evaluates: factual accuracy, completeness, relevance, coherence, hallucination
         """
         print("\n" + "="*60)
         print("LLM-AS-JUDGE EVALUATION")
@@ -217,47 +218,85 @@ class ComprehensiveEvaluationPipeline:
         
         # Sample test cases
         import random
+        random.seed(42)  # Reproducibility
         sampled_cases = random.sample(test_cases, min(sample_size, len(test_cases)))
         
-        relevance_scores = []
-        correctness_scores = []
+        factual_scores = []
         completeness_scores = []
+        relevance_scores = []
+        coherence_scores = []
+        hallucination_scores = []
         overall_scores = []
+        detailed_results = []
         
-        for i, case in enumerate(sampled_cases):
+        print(f"Evaluating {len(sampled_cases)} questions with LLM-as-Judge...")
+        
+        for i, case in enumerate(sampled_cases, 1):
             query = case['question']
-            gt_answer = case.get('ground_truth_answer', '')
+            gt_answer = case.get('ground_truth_answer', case.get('answer', ''))
             
             if not gt_answer:
+                print(f"  ⚠ Skipping Q{i}: No ground truth")
                 continue
             
             # Retrieve and generate
-            context = self.rag_system.retrieve_with_rrf(query, top_k=5)
-            result = self.rag_system.generate_answer(query, context)
-            generated = result.get('answer', '')
-            
-            # LLM judge
-            judge_scores = self.metrics.llm_judge_answer(
-                query, generated, gt_answer, judge_model=None  # Using heuristic
-            )
-            
-            relevance_scores.append(judge_scores['relevance'])
-            correctness_scores.append(judge_scores['correctness'])
-            completeness_scores.append(judge_scores['completeness'])
-            overall_scores.append(judge_scores['overall'])
-            
-            print(f"  Evaluated {i + 1}/{len(sampled_cases)} samples...")
+            try:
+                context_chunks = self.rag_system.retrieve_with_rrf(query, top_k=5)
+                context_texts = [c['text'] for c in context_chunks]
+                
+                result = self.rag_system.generate_answer(query, context_chunks)
+                generated = result.get('answer', '')
+                
+                # LLM judge evaluation
+                judge_scores = self.metrics.llm_judge_answer(
+                    query=query,
+                    generated_answer=generated,
+                    ground_truth=gt_answer,
+                    retrieved_context=context_texts
+                )
+                
+                factual_scores.append(judge_scores['factual_accuracy'])
+                completeness_scores.append(judge_scores['completeness'])
+                relevance_scores.append(judge_scores['relevance'])
+                coherence_scores.append(judge_scores['coherence'])
+                hallucination_scores.append(judge_scores['hallucination_score'])
+                overall_scores.append(judge_scores['overall'])
+                
+                detailed_results.append({
+                    'question': query,
+                    'generated_answer': generated,
+                    'ground_truth': gt_answer,
+                    'scores': judge_scores
+                })
+                
+                if i % 10 == 0:
+                    print(f"  Evaluated {i}/{len(sampled_cases)} questions...")
+                    
+            except Exception as e:
+                print(f"  ⚠ Error on Q{i}: {str(e)}")
+                continue
         
         results = {
-            'mean_relevance': np.mean(relevance_scores) if relevance_scores else 0.0,
-            'mean_correctness': np.mean(correctness_scores) if correctness_scores else 0.0,
+            'mean_factual_accuracy': np.mean(factual_scores) if factual_scores else 0.0,
             'mean_completeness': np.mean(completeness_scores) if completeness_scores else 0.0,
+            'mean_relevance': np.mean(relevance_scores) if relevance_scores else 0.0,
+            'mean_coherence': np.mean(coherence_scores) if coherence_scores else 0.0,
+            'mean_hallucination_score': np.mean(hallucination_scores) if hallucination_scores else 0.0,
             'mean_overall': np.mean(overall_scores) if overall_scores else 0.0,
-            'sample_size': len(sampled_cases)
+            'sample_size': len(factual_scores),
+            'detailed_results': detailed_results[:10]  # Save first 10 for inspection
         }
         
         print(f"\n✓ LLM Judge Evaluation Complete:")
+        print(f"  - Factual Accuracy: {results['mean_factual_accuracy']:.4f}")
+        print(f"  - Completeness: {results['mean_completeness']:.4f}")
         print(f"  - Relevance: {results['mean_relevance']:.4f}")
+        print(f"  - Coherence: {results['mean_coherence']:.4f}")
+        print(f"  - Hallucination Score: {results['mean_hallucination_score']:.4f} (higher=better)")
+        print(f"  - Overall Score: {results['mean_overall']:.4f}")
+        
+        self.results['llm_judge_results'] = results
+        return results
         print(f"  - Correctness: {results['mean_correctness']:.4f}")
         print(f"  - Completeness: {results['mean_completeness']:.4f}")
         print(f"  - Overall: {results['mean_overall']:.4f}")

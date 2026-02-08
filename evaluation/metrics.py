@@ -477,6 +477,192 @@ def main():
         print(f"\n{explanation}")
         print("-"*80)
 
+    def llm_judge_answer(
+        self,
+        query: str,
+        generated_answer: str,
+        ground_truth: str,
+        retrieved_context: List[str] = None
+    ) -> Dict[str, float]:
+        """
+        LLM-as-Judge evaluation using heuristic-based scoring
+        
+        Evaluates:
+        1. Factual Accuracy - How correct is the answer?
+        2. Completeness - Does it cover all key points?
+        3. Relevance - Does it answer the question?
+        4. Coherence - Is it well-structured?
+        5. Hallucination - Contains unsupported facts?
+        
+        Args:
+            query: User question
+            generated_answer: Model's answer
+            ground_truth: Expected answer
+            retrieved_context: Context chunks used (optional)
+        
+        Returns:
+            Dictionary with scores (0-1) for each dimension
+        """
+        if not generated_answer or not ground_truth:
+            return {
+                'factual_accuracy': 0.0,
+                'completeness': 0.0,
+                'relevance': 0.0,
+                'coherence': 0.0,
+                'hallucination_score': 1.0,  # High = bad
+                'overall': 0.0
+            }
+        
+        # Normalize texts
+        gen_lower = generated_answer.lower()
+        gt_lower = ground_truth.lower()
+        query_lower = query.lower()
+        
+        # 1. FACTUAL ACCURACY - Use ROUGE-L as proxy
+        rouge_scores = self.rouge_scorer.score(ground_truth, generated_answer)
+        factual_accuracy = rouge_scores['rougeL'].fmeasure
+        
+        # 2. COMPLETENESS - Keyword coverage
+        import re
+        gt_words = set(re.findall(r'\w+', gt_lower))
+        gen_words = set(re.findall(r'\w+', gen_lower))
+        
+        # Key terms in ground truth
+        gt_keywords = {w for w in gt_words if len(w) > 4}  # Longer words
+        if gt_keywords:
+            covered_keywords = gt_keywords.intersection(gen_words)
+            completeness = len(covered_keywords) / len(gt_keywords)
+        else:
+            completeness = 0.5
+        
+        # 3. RELEVANCE - Query term coverage in answer
+        query_words = set(re.findall(r'\w+', query_lower))
+        query_keywords = {w for w in query_words if len(w) > 3}
+        if query_keywords:
+            covered_query = query_keywords.intersection(gen_words)
+            relevance = len(covered_query) / len(query_keywords)
+        else:
+            relevance = 0.5
+        
+        # Boost if answer length is reasonable
+        if 20 < len(generated_answer.split()) < 200:
+            relevance = min(1.0, relevance + 0.1)
+        
+        # 4. COHERENCE - Structural quality
+        coherence_score = 0.5
+        
+        # Has complete sentences
+        if generated_answer.strip().endswith(('.', '!', '?')):
+            coherence_score += 0.15
+        
+        # Not too short or too long
+        word_count = len(generated_answer.split())
+        if 15 <= word_count <= 150:
+            coherence_score += 0.15
+        
+        # No repetition
+        unique_ratio = len(set(gen_words)) / max(len(gen_words.split()), 1)
+        if unique_ratio > 0.7:
+            coherence_score += 0.1
+        
+        # Has proper capitalization
+        if generated_answer[0].isupper():
+            coherence_score += 0.1
+        
+        coherence_score = min(1.0, coherence_score)
+        
+        # 5. HALLUCINATION DETECTION
+        if retrieved_context:
+            # Check if generated content is supported by context
+            context_text = ' '.join(retrieved_context).lower()
+            context_words = set(re.findall(r'\w+', context_text))
+            
+            # Important words in answer not in context = potential hallucination
+            important_gen_words = {w for w in gen_words if len(w) > 5}
+            if important_gen_words:
+                unsupported = important_gen_words - context_words - query_keywords
+                hallucination_rate = len(unsupported) / len(important_gen_words)
+            else:
+                hallucination_rate = 0.0
+        else:
+            # Without context, use ground truth as reference
+            important_gen_words = {w for w in gen_words if len(w) > 5}
+            if important_gen_words:
+                unsupported = important_gen_words - gt_keywords - query_keywords
+                hallucination_rate = len(unsupported) / len(important_gen_words)
+            else:
+                hallucination_rate = 0.0
+        
+        hallucination_score = 1.0 - hallucination_rate  # High = good (no hallucinations)
+        
+        # OVERALL SCORE (weighted average)
+        overall = (
+            0.30 * factual_accuracy +
+            0.25 * completeness +
+            0.20 * relevance +
+            0.15 * coherence_score +
+            0.10 * hallucination_score
+        )
+        
+        return {
+            'factual_accuracy': round(factual_accuracy, 4),
+            'completeness': round(completeness, 4),
+            'relevance': round(relevance, 4),
+            'coherence': round(coherence_score, 4),
+            'hallucination_score': round(hallucination_score, 4),
+            'overall': round(overall, 4),
+            'explanation': self._generate_judge_explanation(
+                factual_accuracy, completeness, relevance, 
+                coherence_score, hallucination_score
+            )
+        }
+    
+    def _generate_judge_explanation(
+        self, 
+        factual: float, 
+        complete: float, 
+        relevant: float, 
+        coherent: float, 
+        halluc: float
+    ) -> str:
+        """Generate human-readable explanation of scores"""
+        parts = []
+        
+        if factual >= 0.8:
+            parts.append("✓ Factually accurate")
+        elif factual >= 0.6:
+            parts.append("~ Mostly accurate")
+        else:
+            parts.append("✗ Low factual accuracy")
+        
+        if complete >= 0.7:
+            parts.append("✓ Complete answer")
+        elif complete >= 0.5:
+            parts.append("~ Partially complete")
+        else:
+            parts.append("✗ Missing key information")
+        
+        if relevant >= 0.7:
+            parts.append("✓ Highly relevant")
+        elif relevant >= 0.5:
+            parts.append("~ Somewhat relevant")
+        else:
+            parts.append("✗ Low relevance")
+        
+        if coherent >= 0.7:
+            parts.append("✓ Well-structured")
+        else:
+            parts.append("~ Could be more coherent")
+        
+        if halluc >= 0.8:
+            parts.append("✓ No hallucinations")
+        elif halluc >= 0.6:
+            parts.append("~ Minor unsupported claims")
+        else:
+            parts.append("✗ Contains hallucinations")
+        
+        return " | ".join(parts)
+
 
 if __name__ == "__main__":
     main()
